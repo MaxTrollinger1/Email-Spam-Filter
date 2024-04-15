@@ -1,0 +1,1565 @@
+Delivered-To: trollingermax@gmail.com
+Received: by 2002:a05:7108:63a9:b0:37e:1123:8f45 with SMTP id a9csp1595197gdr;
+        Sun, 14 Apr 2024 12:20:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE4cxxOlYFTPMKaqFNUJiVVr6oIKJwsxQe6P3OBA154PSzAycRckPsU6yKCubrUKyXpawag
+X-Received: by 2002:a05:620a:178c:b0:78a:4a0e:a9ff with SMTP id ay12-20020a05620a178c00b0078a4a0ea9ffmr10985936qkb.56.1713122415493;
+        Sun, 14 Apr 2024 12:20:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1713122415; cv=none;
+        d=google.com; s=arc-20160816;
+        b=oaTUNPpj94Goz3iF3pLnuwKZW8yvoJlAecAJ+oK9guB7N++NhgbBmyUY2PLCBp2o4i
+         HOBJjeL6HJCGGVQJ4RClMinEIB42YaIe6epFJiAGfYoJbdJHjoJmp2ROp+OfMud2/ElP
+         sCyNoWJlTVF/DzUTGrTWLKp3eZwsLBaGC30TxopS4JA4R+EpasoEC6QqFySHR6lrck+M
+         5jFZN5GPGjFsuF9VlefVjzEHW5aJ3kdiMjG4FzATIc3H+qrlNfbRL5JOa39OB42lCF+D
+         pB7S495vy17XdauUTqmJqzirtLhoHqsFCV/fXsHK0/sGoLPZkf6MSQKlQbs4cf46874J
+         BvUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=CxKuKVRGzPoL0PpPTasYXkFlX2SYJN/VUzeLyUBFYyU=;
+        fh=ne4Rj7AT5ILgO+WbijAeECvggwicwgBhUVwjEpxXdrM=;
+        b=stAqLnUrilOVTQ6yFwzJT/TLE5Oz+tTGeSocxhMcjU2JvAcqSDsqdpYReGOfa3fI53
+         RAqXZBi1WWTJPU/AvB8w3uxlXjWfyE53ikIrw6SxiVm89ena7NgOYIP2fwB95n4MCR3p
+         nGiCmBqaoGzT++ZRJlb8EQZr50OF6/dgqpHVqmrs0dyJpjtwQUte6RJgaxOV6O1awRql
+         aYZ3fJmV8/9fPvZqlUXWaGAJ13KobdSrQmEloaafA7rizLKVVms9+tsyd45mP8ibR+OL
+         DtAK1sgWAUuhVipHFZTmxqEH3Mn8rAiiGtx8MGbQsSKN23sDfpXTiiFKrT09zm/prU0A
+         Ri4A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@robinhood.com header.s=s1 header.b=ZavhPsG8;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="Y/EbrRfI";
+       spf=pass (google.com: domain of bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com designates 168.245.116.86 as permitted sender) smtp.mailfrom="bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=robinhood.com
+Return-Path: <bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com>
+Received: from o12.email.robinhood.com (o12.email.robinhood.com. [168.245.116.86])
+        by mx.google.com with ESMTPS id b26-20020a05620a04fa00b0078a36e7bd63si8285723qkh.491.2024.04.14.12.20.14
+        for <trollingermax@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 14 Apr 2024 12:20:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com designates 168.245.116.86 as permitted sender) client-ip=168.245.116.86;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@robinhood.com header.s=s1 header.b=ZavhPsG8;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="Y/EbrRfI";
+       spf=pass (google.com: domain of bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com designates 168.245.116.86 as permitted sender) smtp.mailfrom="bounces+6630771-b763-trollingermax=gmail.com@sg-email.robinhood.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=robinhood.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=robinhood.com;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=CxKuKVRGzPoL0PpPTasYXkFlX2SYJN/VUzeLyUBFYyU=;
+	b=ZavhPsG84ECn75JaYBz5IcBAop8PylGqWOcgdnZkfyo/UPP+mi5nV2jIU7BD5wfdK8p9
+	OaUcoZsTJWp0ON3f4LpCqLEbo70a/R/o8ghApK/znSvH9WvYKE3rBHQ1M1yjjrTcMgWK2E
+	140cB+cd84ngYbrh/PpoIGO5Kfojh+U7WOiKSwia2uE3iRpkBwyc5CpivYpX0IacwKKzik
+	e9+H99niP9zqtlupm0amAuXQzaIWw+VvmWXbb4Rp6ykEL1UGLRpUU1gLOecXyk/KCW4Ywc
+	rSQgM5jOwT/T68aC+UAhLoei7auZiUgxFcQseI36VO1fm2FqdalCxjaJrPDClIVw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=CxKuKVRGzPoL0PpPTasYXkFlX2SYJN/VUzeLyUBFYyU=;
+	b=Y/EbrRfIqO6N3T0NVcm4uSIKZUevmEona5RWj6qRn8XFK1ua8HvvzIwBPjaAhWm1heR0
+	koTwZfwjCq8EiJLEjsRZhkBsw6Y8JeX0E9EiyYD4VhT68sxzOGkplzncz9MXtPdXqya0wu
+	DdnUK/0I8P7YpWl2SO/26waSPCXuuG5bQ=
+Received: by filterdrecv-5d4d97d88c-v7whj with SMTP id filterdrecv-5d4d97d88c-v7whj-1-661C2C6C-78
+        2024-04-14 19:20:12.701070684 +0000 UTC m=+163696.704297119
+Received: from NjYzMDc3MQ (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id fXnMR9EdRLW8JdYSwk3r8A
+	Sun, 14 Apr 2024 19:20:12.559 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=1c227061a3b659842043c4c0cb42ba023ec7a37cedbb79c00fab714a7b5e
+Date: Sun, 14 Apr 2024 19:20:12 +0000 (UTC)
+From: Robinhood <noreply@robinhood.com>
+Mime-Version: 1.0
+Message-ID: <fXnMR9EdRLW8JdYSwk3r8A@geopod-ismtpd-4>
+Subject: Tomorrow is your last chance to claim the full $405 match
+X-Feedback-ID: 6630771:SG
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EvvAHGVLg1JA=2FtIUTfloAertBUvyTj=2FoX6gvFwgspKMe3qLmrUnLKZlOJU?=
+ =?us-ascii?Q?OlFJVP6hBe8M+oBcWzvrM=2Fl8wLDvIxQ2q3+GndL?=
+ =?us-ascii?Q?0Tr4a=2FF+94oh9BzjCNS09iP7L2ZHkJhxfnoGs5=2F?=
+ =?us-ascii?Q?5PkFtH=2FCSBLlGL7QOzV+SAsHBB03uMnsCxkJl5R?=
+ =?us-ascii?Q?pA8ImcqKp+Bx+6IYC243G7xV3vk4zDNm=2FNDXEZQ?=
+ =?us-ascii?Q?y2HUHUPrsFGsIagjlSLy96AudkJTTWTy1eyLJ3U?= =?us-ascii?Q?+UVk?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3Bi5WpjtFPdLsbB50SZLKTLVZ+zHPqKr+IspsL?=
+ =?us-ascii?Q?dUXVve8xYKvh3fkBJbur+lnkBKgEMPG7ccCgTNU?=
+ =?us-ascii?Q?Y+hKKC794KU7DyGscwsExZKoqXpDF6XyFPiB8CV?=
+ =?us-ascii?Q?nJQglAOPyhIVShhnPmZA=2F+88d7IDOlUzXuwP7to?=
+ =?us-ascii?Q?RXxuMiYtEviEduVUrW6E49zRH=2FC11jjeXr+vG+P?=
+ =?us-ascii?Q?j+K5cQKDOC2CiKe4kdkkOWi4nzVzvYqBq8ESJ73?=
+ =?us-ascii?Q?C4fAFi6T05F=2FgpsW0Y3qR2QsKEKjqMIsBQy56sN?=
+ =?us-ascii?Q?5h48EYcNGcVXah9BBg9ITMNTXDus9y99FrSfPrT?=
+ =?us-ascii?Q?O972gl4Mucrt3Aa6hILYutOKCqIrf+=2FX4kB7sJj?=
+ =?us-ascii?Q?2D4gnGP7Mkd9KL5Y4GPvcIBHDaz3eG5aPaZHyO6?=
+ =?us-ascii?Q?ldloOAYoZTniAsBX29djbiNdyokH9b5WxrHbmIG?=
+ =?us-ascii?Q?owTx806ct0jBhgWh6grYKg9WcM4VC4cprx+A=2Fm3?=
+ =?us-ascii?Q?0=2FjDs=3D?=
+To: trollingermax@gmail.com
+X-Entity-ID: u001.jdCBGbktVXXrEvpoT9bp1g==
+
+--1c227061a3b659842043c4c0cb42ba023ec7a37cedbb79c00fab714a7b5e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+<!doctype html><html xmlns=3D"https://sg.robinhood.com/ls/click?upn=3Du001.=
+rW8WwSo0bALtYWqFXAWciO718Yb69wAP4w0NWkLDqruo8kllO-2FUgCt6FfCAWpX-2BjB7r6_kd=
+YiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiX=
+Ddi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXN=
+Qca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfm=
+hL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW=
+0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18=
+FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BE=
+y-2F5sEl33TROGsp8mc2o98DnLG5JLxq2x-2F4xosJgHwxKhUyHiADuF4RXBdi7z8ckn9EkeHBj=
+QGBTXLCOspfYobqPsRQdwpon0aTE7-2BTsGZLljM9K-2BZvqRJ4HgBO1b0uH1NJP2yh1iVUldMx=
+nWOoACVaMBDiq-2BO7H6VfBrrzYNZxn2-2FnSo4p-2BAFwAuyukHKmfsYB8iZ2raHf1k78IUUfm=
+wk3p7Xyk5zbCRQTC8c2XEJtdJUVSWR2ruvaJAlq9-2FL1zLs-3D xmlns:v=3D"urn:schemas-=
+microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><hea=
+d><title></title><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" co=
+ntent=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=3D"Content-Type" conte=
+nt=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width,initial-scale=3D1"><style type=3D"text/css">#outlook a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }</style><!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }</style><style media=3D"screen and (min-width:480px)">.moz-text-html .=
+mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }</style><style type=3D"text/css">@media only screen and (max-width:480=
+px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }</style><style type=3D"text/css">.buttonSecondary a {
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+    }
+
+    .bodyText {}
+
+    .bodyText div {}
+
+    @media only screen and (min-width: 480px) {
+
+      .image-lead-override,
+      .image-lead-override td,
+      .image-lead-override img {
+        width: 471px !important;
+        height: 282px !important;
+      }
+    }
+
+    @media only screen and (min-width:480px) {
+      .mj-section-rh>table>tbody>tr>td {
+        padding-left: 90px !important;
+        padding-right: 90px !important;
+      }
+
+      .header-image-full-bleed>table>tbody>tr>td {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }</style><meta name=3D"color-scheme" content=3D"light"><meta name=3D"su=
+pported-color-schemes" content=3D"light"></head><body style=3D"word-spacing=
+:normal;background-color:#FFFFFF;"><div style=3D"display:none;font-size:1px=
+;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overf=
+low:hidden;">Sign up to Gold and contribute to your 2023 IRA by April 15 an=
+d 2024 IRA limit to earn extra.</div><div class=3D"body" style=3D"padding: =
+6px; background-color: #FFFFFF;"><!--[if mso | IE]><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-out=
+look" role=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D=
+"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><v:rect style=3D"width:652px;" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" fill=3D"true" stroke=3D"false"><v:fill origin=3D"0.5, 0" positi=
+on=3D"0.5, 0" src=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL=
+58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2-2FP8PqUlx-2FT-2Bx=
+Z3w3XTz3Paqf7VcVSIySLk3VTxtatO8-3DEcbZ_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQ=
+RY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tp=
+f2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV5=
+5isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcY=
+uF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6Sk=
+VQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoB=
+f2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExi6v9KHzzQYfUyyo-2Fn59kVa0RiUi5b56=
+ZtwQgGkXZWxORKcwLpMfbsHtG9hKYaI-2FomfSAZJY1h6nsFGpzaR-2Bo7ua-2BTLjoCb5UWyym=
+iiXWMYNDRcCCnChHG2EhGgLQYrtFbatuKQwbxQ3ZbQ9F-2FFA3PnrtR1Y0dHdSzEoGC6MJq8RlE=
+-2FVXwqKU0iTHVxJdFwEfpC7uNX2O7SJveHcczkuyNjklvTPGV5TeEIz9FaIileDxnhFGgtuAJO=
+RBEGzULuR8-3D color=3D"#ffffff" type=3D"tile" /><v:textbox style=3D"mso-fit=
+-shape-to-text:true" inset=3D"0,0,0,0"><![endif]--><div class=3D"mj-section=
+-rh" style=3D"background:#ffffff url('https://sg.robinhood.com/ls/click?upn=
+=3Du001.XlCJqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2-=
+2FP8PqUlx-2FT-2BxZ3w3XTz3PR6EJy2tJAD8xPYzALOK7Oo-3DAwt-_kdYiKv-2B63pC41O6zc=
+lZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg=
+38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3q=
+oetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sY=
+DQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkY=
+sNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06F=
+IIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyO3bCY0bvI4NTOVw2=
+rT9H5gMyoRpwuCoJjfyF-2Fz5JFe1gn8mt3f8RViLB4QeM-2Bf9uWNHNHLKt6HlXw1oMO3n0N0d=
+5vvXfz33ViOZaFR-2Fm0-2BPqfsWUex2RWTv9vutpP6DJnLxiBj5xNiGZKa-2FvCmB9duC958EQ=
+opXUlXN9pvEmS0rPcpc7t43SRsB9r0xCa1UDRcp0PvntMxdrrx3jojMyeKgnXPkQiaFtDcAwL6D=
+Q7HPDrTCPzIc62d9KGZp9aUlA-3D center top / auto repeat;background-position:c=
+enter top;background-repeat:repeat;background-size:auto;margin:0px auto;max=
+-width:652px;"><div style=3D"line-height:0;font-size:0;"><table align=3D"ce=
+nter" background=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL5=
+8T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2-2FP8PqUlx-2FT-2BxZ=
+3w3XTz3Paqf7VcVSIySLk3VTxtatO8-3DOuhA_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQR=
+Y1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf=
+2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55=
+isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYu=
+F4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkV=
+QeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf=
+2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExj064pAS8m5ZyF3tH2tPAPgEvtzcFBIt9mj=
+xabrPL4aW-2Beoa2FhpzNMCmXkUGD2DpzIX2QQuGAyQ9AA2DeUsJafonIeLjDgUmQX930iedb4H=
+TVNPg9KPdlfetO4YBD3N0rsb94LugtuVsJ-2FbZ-2FfYUMxsoisSz5NnbFchaKzQQO9fAvztl00=
+7ba47oxcf1evulErt38L7HxJIQH8eV2F3nY8cJxZDQXbY9t6dZUgM-2Fr5RgJDVOBz5RftbNQpS=
+OmXRg-3D border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"background:#ffffff url('https://sg.robinhood.com/ls/click?upn=
+=3Du001.XlCJqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2-=
+2FP8PqUlx-2FT-2BxZ3w3XTz3PR6EJy2tJAD8xPYzALOK7Oo-3DpTCw_kdYiKv-2B63pC41O6zc=
+lZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg=
+38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3q=
+oetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sY=
+DQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkY=
+sNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06F=
+IIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExXR05UPQDXLrRu5H-=
+2BSp9UqLUQl03ceC5iphnqpFmt9HJUFBRQYwx6O0hnoVK-2FjoLOTIRTJTnHLaZf1UGw9Lp4nX7=
+k-2FEO2jvqfeOgA6KnuYjPmEAPBl-2FMB3ZooQ7VmNL11O9QAqj6azwpcczF3hE0kCuWglxv3M5=
+iCzjRFYzUfgM3t9DacQG48JyXlvR8W3-2BwJBljhp8CORbWr3xMrTAiccgEPgG2NyunnC3mdqiz=
+KmDGbr5-2BxxDQ-2FVk5tgLGltxNc-3D center top / auto repeat;background-positi=
+on:center top;background-repeat:repeat;background-size:auto;width:100%;"><t=
+body><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:1;border-top:1=
+;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:18px;padding-lef=
+t:32px;padding-right:32px;padding-top:21px;text-align:center;"><!--[if mso =
+| IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:586px;" ><![e=
+ndif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align=
+:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:=
+top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"=
+font-size:0px;padding:0px;word-break:break-word;"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collap=
+se:collapse;border-spacing:0px;"><tbody><tr><td style=3D"width:114px;"><img=
+ alt=3D"Robinhood logo" height=3D"28" src=3D"https://sg.robinhood.com/ls/cl=
+ick?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cq=
+bAwhZ2IV9sUfpbO-2BkH02DNihDUnoq48Ri7beZPZO8DigZKqXI-3Dn7Lq_kdYiKv-2B63pC41O=
+6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa3=
+0Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyP=
+x3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK=
+4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDH=
+mkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK=
+06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExfEgrj-2FoNYQP=
+pqALkPTkdV4gMhsr6WSekGALYWkB6HyfT9KZtWeL5Zz0DbTg78yrwF3QeYfHNFQkaLs8graIxkZ=
+ujbTVOjAOsQbAdLouITKshqR79CdapKVTuLUb74kHzmrMf6ZCWxx9szRo9SHBA7f-2Ft1HKQPCh=
+-2FAJuZg-2FnuHFlamh0ltpeUP8z3ulHqm2ebOMZZZaKMgqJzjw7-2BunPTeJNcf4651IYBYpDV=
+KnZn0IunS9-2FZJL16MLOQKn2Y-2F-2Fdg-3D srcset=3D"https://sg.robinhood.com/ls=
+/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my=
+2cqbAwhZ2IV9sUfpbO-2BkH02DNihDUnjHtKNI0uNvc3REeWVqwzh8-3Drpez_kdYiKv-2B63pC=
+41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCov=
+Ha30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0=
+PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx=
+2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbuc=
+rDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZ=
+NDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyleW0yVtsw8=
+sNQclPeZQbkx0YfkTlK1YWSEt47utghiNK4VGWdDiF8Mmxf5gEZtT0XZRgXAk-2FMweEZz9KjSJ=
+HcwDJLt7zSeQum-2BhVB0FVckZdJmHWutZqoF6-2F4tdnprDtYkEOqXbKnaKdNTzVEMYXccbDKp=
+YlFtVSqwJlpO2KR8km5WJpWPYP68S3KE4yVc12K99RgdRqV7JlxIkgrMvF2ejAawO0PwsZpvI-2=
+B6j7X0CDwFRDzjq6DZ9PIt0FWGC48-3D https://sg.robinhood.com/ls/click?upn=3Du0=
+01.XlCJqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2IV9sUf=
+pbO-2BkH02DNihDUnjM456z4BVEmNS56DZMF82w-3DGPw-_kdYiKv-2B63pC41O6zclZ3Tdf7m5=
+XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6z=
+gBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-=
+2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNR=
+DUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE=
+28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FY=
+akGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEz4E9iu08rM43TlJKuQfXqvo1jb=
+AUUQNCe461FQDf-2FboP9A8xxEU8E5LuDgEZNrutw6OWkVQ83BHIx8OIqh55qEpmzgrtooTeQW-=
+2BfnvnMnGC2o91eTXuoDEe0RsMgwVd3gpAPKnXX1hx5WdR4zCwzEg5GgVGs0LzHpAXsOq7gp2xD=
+-2FWaMixESFXZCT2cwtewBtQ3yKZb98OE614KKyJap-2FP5eFB8twSU-2FtumumWAOoYGmuGpkS=
+C2clM9R6QHaOcUwc-3D 2x" style=3D"border:0;display:block;outline:none;text-d=
+ecoration:none;height:28px;width:100%;font-size:15px;" width=3D"114"></td><=
+/tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></d=
+iv><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></tabl=
+e></div></div><!--[if mso | IE]></v:textbox></v:rect></td></tr></table><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"header-image-full-bleed
+-outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -ou=
+tlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlo=
+ok -outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook =
+-outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -ou=
+tlook -outlook" role=3D"presentation" style=3D"width:652px;" width=3D"652" =
+bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]--><div class=3D"header-image-full-bleed" =
+style=3D"background:#ffffff;background-color:#ffffff;margin:0px auto;max-wi=
+dth:652px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-colo=
+r:#ffffff;width:100%;"><tbody><tr><td style=3D"border:1px solid #B4BDC2;bor=
+der-bottom:1;border-top:none;direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;text-ali=
+gn:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align=
+:top;width:650px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-=
+group-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inl=
+ine-block;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top;=
+" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"header-image" sty=
+le=3D"font-size:0px;padding:0px;word-break:break-word;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-=
+collapse:collapse;border-spacing:0px;"><tbody><tr><td style=3D"width:650px;=
+"><img alt height=3D"auto" src=3D"https://sg.robinhood.com/ls/click?upn=3Du=
+001.XlCJqwwOL58T-2B5u1T1OmQNE4WY4GHXkH4Q6-2B7O5VpJ6W8-2FLcgcPlCZYAEj2jmoQIY=
+W7fkvd8g5lplRtVUgvP5Ze1G1-2B6XnCFKbw2nZLEHLVCMiBdFy4oj4qLRVFbPxhQJn4fI1cpBO=
+VLELwWoAWh8TXHNaZLEsX7aHkxNkMbdbVy2N54gYgBt1OcJj8BDzlJhjD1_kdYiKv-2B63pC41O=
+6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa3=
+0Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyP=
+x3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK=
+4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDH=
+mkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK=
+06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEy9gi0AQ-2B3yCh=
+ft9ziZUHCAqZjq8t2BEvlZoh5cyLXy4mjTuorBMh8p3GF3VOSQclPDNzWYkSI3cnm-2FlTlXhGR=
+j5TzvadzHbnXTnMqyNaLIh1UbnQnOp17wFzNWWPcvDI7kNKwuYL4DPFWLH865Brk8i7RDCvfn7h=
+DjusiHlas3tFnmV0gqQIoDFn63HEhKC43wj-2BkniYpmw9S1OOIvweNrT07kdP42pzhInhko-2F=
+7i2fN7YDuyGkB7XdAAdX5yOYjQ-3D srcset=3D"https://sg.robinhood.com/ls/click?u=
+pn=3Du001.XlCJqwwOL58T-2B5u1T1OmQNE4WY4GHXkH4Q6-2B7O5VpJ6W8-2FLcgcPlCZYAEj2=
+jmoQIYW7fkvd8g5lplRtVUgvP5Ze1G1-2B6XnCFKbw2nZLEHLVCMiBdFy4oj4qLRVFbPxhQJn4f=
+I1cpBOVLELwWoAWh8TXHNaZLEsX7aHkxNkMbdbVrEAfK49VAmT4J8VmgXczlmUU7_kdYiKv-2B6=
+3pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcV=
+CovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZ=
+Ng0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfi=
+jnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrs=
+bucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQP=
+SAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEz9se1TB9=
+-2FAgwaHNiwcqWm7bqO5-2Fdr-2B9Jh4Mq2SStAxSG-2B7W9mvNDHTR2iYBbHkgbCX6BBunUpNk=
+IsUtyny7lH7QR-2FFSUO3hRhRcLjBEB4NzpemuCxIBeXG3az5xQJbAsbum5w6bj6EL52rZSUWWe=
+UqrUMiOWanLH9uS-2FfNMLo2Dm0qavh96WGTMlSioAoR-2Bgu0PmvQtrDj0M80Cj-2FiAnmeJHV=
+c5pBlo2LQU6UUYLNkCh0lgqHCpPozrFmeRBRUA80-3D 400w, https://sg.robinhood.com/=
+ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQNE4WY4GHXkH4Q6-2B7O5VpJ6W8-2FLcg=
+cPlCZYAEj2jmoQIYW7fkvd8g5lplRtVUgvP5Ze1G1-2B6XnCFKbw2nZLEHLVCMiBdFy4oj4qLRV=
+FbPxhQJn4fI1cpBOVLELwWoAWh8TXHNaZLEsX7aHkxNkMbdbUh86DACsL3-2BwBY3pntVYJgibz=
+D_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4K=
+WhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2B=
+ObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w=
+9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrl=
+MyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a=
+6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j=
+-2BEykXWtRznREvIhYJUPN8vy2qYau5tS6ppT28RK7Crywsdu9Cwe-2F3YaJd-2BZzWdZO5p-2F=
+fbIhgOYJsdf4UYcsrgN-2BsrDllQkSBoq7hCVCMsFRKdXBfSbHQ6Z7J2caWFBOpzQCc9-2FQvdg=
+tzOsTjVJ1P71YhQ5KY3SojrC7-2B9nw3O6x5mvBFpIYBha02kHs4GhresyC3tbU5m9WIA0S5EKG=
+B12JdBHTIzs18EK4mdVCx2Ba5sj9rsKo-2B6huwLhp9DtXGaXE-3D 800w, https://sg.robi=
+nhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQNE4WY4GHXkH4Q6-2B7O5Vp=
+J6W8-2FLcgcPlCZYAEj2jmoQIYW7fkvd8g5lplRtVUgvP5Ze1G1-2B6XnCFKbw2nZLEHLVCMiBd=
+Fy4oj4qLRVFbPxhQJn4fI1cpBOVLELwWoAWh8TXHNaZLEsX7aHkxNkMbdbUzwHFLztf7URlNUjW=
+crN5Svt2P_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9n=
+I55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw=
+2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ=
+953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t4=
+5bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPv=
+CQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksx=
+Wt1AmL6j-2BEyWWZWRtYw7RXkfbIpNTqmwtoLGF-2FDqrQoB7tfJ6nTGwDOFICGpwM27XtMDhCq=
+qq8pULQxTiXuKC5L-2FIFM9sY-2F5uwHVbcZdsi9zoJCTCcYu8jt-2BSLBCi3cEnYovjy326yNA=
+IjARWMLECecD0QDTOPX-2FQtHhUHBtQp-2BLUbDefOUw2UENO0-2BO4GbuIq4G9pz81Riuvds66=
+yQYVOKsN6tZipw5aP4ixXdOb7dMYLxkOalMWk3KG7dGgdMzOAeaVVHm2fo-3D 650w, https:/=
+/sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQNE4WY4GHXkH4Q6=
+-2B7O5VpJ6W8-2FLcgcPlCZYAEj2jmoQIYW7fkvd8g5lplRtVUgvP5Ze1G1-2B6XnCFKbw2nZLE=
+HLVCMiBdFy4oj4qLRVFbPxhQJn4fI1cpBOVLELwWoAWh8TXHNaZLEsX7aHkxNkMbdbW2I6rd77b=
+n6aoT1YFmog-2B8ool3_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu=
+1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2F=
+aDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2j=
+vNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZY=
+cCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2=
+uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI03=
+2IghSJZksxWt1AmL6j-2BEwmldF8VtrRZXo6iWy5drRBzOf9YYJgb0tDcK8seRP-2BcA4ckkXEt=
+cvXJm21rwVF-2Fsn-2Fye3KW0wVzpscYqSjFeENiGMVnIkjxgEzVKPXCImeZ2YoJUDD-2FCDw9x=
+xWolAlTFtcUOeMEmZnfbQuTw4USg3S9s4P-2FzTdU-2FpYyxYjcn7PPciYswAz45CLdheoTpNz5=
+PcZQYR6UAhP6Z0z-2Fk8Fj3qwNzGjcxVMOAnUmLUCuWQxwUIORi4S5Zlj0K9wOF0aff0-3D 130=
+0w" style=3D"border:0;display:block;outline:none;text-decoration:none;heigh=
+t:auto;width:100%;font-size:15px;" width=3D"650"></td></tr></tbody></table>=
+</td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![endi=
+f]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"bodyText-outlook mj-section-rh-outlook" role=3D"presentation" style=3D=
+"width:652px;" width=3D"652" bgcolor=3D"#ffffff" ><tr><td style=3D"line-hei=
+ght:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div class=
+=3D"bodyText mj-section-rh" style=3D"background:#ffffff;background-color:#f=
+fffff;margin:0px auto;max-width:652px;"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgr=
+ound:#ffffff;background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"=
+border:1px solid #B4BDC2;border-bottom:none;border-top:none;direction:ltr;f=
+ont-size:0px;padding:20px 0;padding-bottom:0;padding-left:32px;padding-righ=
+t:32px;padding-top:0;text-align:center;"><!--[if mso | IE]><table role=3D"p=
+resentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=
+=3D"" style=3D"vertical-align:top;width:586px;" ><![endif]--><div class=3D"=
+mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:l=
+eft;direction:ltr;display:inline-block;vertical-align:top;width:100%;"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"vertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"left" s=
+tyle=3D"font-size:0px;padding:12px 0px;padding-top:24px;padding-bottom:12px=
+;word-break:break-word;"><div style=3D"font-family:Arial;font-size:24px;lin=
+e-height:29px;text-align:left;color:#040D14;">Max out your 2023 IRA contrib=
+utions by tomorrow</div></td></tr></tbody></table></div><!--[if mso | IE]><=
+/td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | =
+IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"bodyText-outlook mj-section-rh-outlook" role=
+=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#ffffff" =
+><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactl=
+y;"><![endif]--><div class=3D"bodyText mj-section-rh" style=3D"background:#=
+ffffff;background-color:#ffffff;margin:0px auto;max-width:652px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"background:#ffffff;background-color:#ffffff;width:100%;=
+"><tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:none;borde=
+r-top:none;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;padd=
+ing-left:32px;padding-right:32px;padding-top:0;text-align:center;"><!--[if =
+mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:586px;" >=
+<![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"=
+font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-a=
+lign:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"vertical-align:top;" width=3D"100%"><tbod=
+y><tr><td align=3D"left" style=3D"font-size:0px;padding:12px 0px;word-break=
+:break-word;"><div style=3D"font-family:Arial;font-size:15px;line-height:25=
+px;text-align:left;color:#040D14;">Max, sign up for Robinhood Gold and max =
+out your 2023 IRA contributions by tomorrow as well as your 2024 contributi=
+ons to <b>get up to a $405 match</b> <b>on us</b>.</div></td></tr><tr><td a=
+lign=3D"left" style=3D"font-size:0px;padding:12px 0px;word-break:break-word=
+;"><div style=3D"font-family:Arial;font-size:15px;line-height:25px;text-ali=
+gn:left;color:#040D14;">Full offer ends tomorrow.</div></td></tr></tbody></=
+table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbo=
+dy></table></div><!--[if mso | IE]></td></tr></table><table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-o=
+utlook" role=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=
+=3D"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]--><div class=3D"mj-section-rh" style=3D"backgrou=
+nd:#ffffff;background-color:#ffffff;margin:0px auto;max-width:652px;"><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"background:#ffffff;background-color:#ffffff;width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:none;b=
+order-top:none;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;=
+padding-left:32px;padding-right:32px;padding-top:0;text-align:center;"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:586px=
+;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"vertical-align:top;" width=3D"100%"><=
+tbody><tr><td align=3D"left" vertical-align=3D"middle" style=3D"font-size:0=
+px;padding:12px 0px;word-break:break-word;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:sep=
+arate;line-height:100%;"><tbody><tr><td align=3D"center" bgcolor=3D"#040D14=
+" role=3D"presentation" style=3D"border:1px solid #b4bdc2;border-radius:22p=
+x;cursor:auto;mso-padding-alt:11px 30px;background:#040D14;" valign=3D"midd=
+le"><a href=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B=
+5u1T1OmQMS1AD6acGniJ6TKTu689vp3o-2FJMN9p514nYl9GBh2Hxz37oDQRfK-2BWVkSNq7EP9=
+7Q-3D-3DCDZV_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHks=
+h9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9od=
+UUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm0=
+8jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca=
+2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poik=
+IPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZ=
+ksxWt1AmL6j-2BEzitpmoVngSmTrsbU34IGZ6PEgfd86HN4CHg54HukqVrDVRnNNOm5hVPkjZG2=
+YLQqiUundR3uwRgL-2FEcVu0YER8JOpSvTLzfkBdHnw5daqAND2DrtP1uBlUNl-2FMFDWF-2BP8=
+8acbECfTZ3vCtExgyr7cQQs-2FULOIMV8cwG-2FYzwV77wwkjJMR7pM8bxVF4m9lucIGVe8RrzL=
+TUMxk5Oi-2BmBBZGcEK-2Fi-2BT7BZW8TI3DulQkTs6ngWx3IheCrnE65vFLqBo-3D style=3D=
+"display: inline-block; background: #040D14; color: #ffffff; font-family: A=
+rial; font-size: 15px; font-weight: bold; line-height: 22px; margin: 0; tex=
+t-decoration: none; text-transform: none; padding: 11px 30px; mso-padding-a=
+lt: 0px; border-radius: 22px;" target=3D"_blank">Get extra</a></td></tr></t=
+body></table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></=
+table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></=
+tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"mj-section-rh-outlook" role=3D"presentation" style=3D"wid=
+th:652px;" width=3D"652" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:=
+0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div class=3D"=
+mj-section-rh" style=3D"background:#ffffff;background-color:#ffffff;margin:=
+0px auto;max-width:652px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#ffffff;=
+background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"border:1px so=
+lid #B4BDC2;border-bottom:none;border-top:none;direction:ltr;font-size:0px;=
+padding:20px 0;padding-bottom:0;padding-left:32px;padding-right:32px;paddin=
+g-top:0;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=
+=3D"vertical-align:top;width:586px;" ><![endif]--><div class=3D"mj-column-p=
+er-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;directi=
+on:ltr;display:inline-block;vertical-align:top;width:100%;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"v=
+ertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"f=
+ont-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-fa=
+mily:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">=
+For the 2023 tax year, you=E2=80=99d earn $195 on a maximum $6,500 contribu=
+tion by April 15, 2024.</div></td></tr><tr><td align=3D"left" style=3D"font=
+-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-famil=
+y:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">For=
+ the 2024 tax year, you can still earn $210 on a maximum $7,000 contributio=
+n through April 15, 2025.</div></td></tr><tr><td align=3D"left" style=3D"fo=
+nt-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-fam=
+ily:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">S=
+ubscription fee and terms apply.</div></td></tr><tr><td align=3D"left" styl=
+e=3D"font-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"f=
+ont-family:Arial;font-size:15px;line-height:25px;text-align:left;color:#6F7=
+87E;">=E2=80=93 The Robinhood team</div></td></tr><tr><td align=3D"left" st=
+yle=3D"font-size:0px;padding:12px 0px;padding-top:0;padding-bottom:22px;wor=
+d-break:break-word;"><div style=3D"font-family:Arial;font-size:15px;line-he=
+ight:25px;text-align:left;color:#040D14;"></div></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-outlook"=
+ role=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#F6F=
+6F6" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div class=3D"mj-section-rh" style=3D"background:#F6F6=
+F6;background-color:#F6F6F6;margin:0px auto;max-width:652px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#F6F6F6;background-color:#F6F6F6;width:100%;"><=
+tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:none;border-t=
+op:1;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;padding-le=
+ft:32px;padding-right:32px;padding-top:30px;text-align:center;"><!--[if mso=
+ | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td class=3D"footer-column-outlook" style=3D"vertical-align:t=
+op;width:586px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-gr=
+oup-fix footer-column" style=3D"font-size:0px;text-align:left;direction:ltr=
+;display:inline-block;vertical-align:top;width:100%;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-=
+align:top;" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size=
+:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-family:Ari=
+al;font-size:15px;line-height:25px;text-align:left;color:#040D14;"></div></=
+td></tr><tr><td align=3D"left" class=3D"social-link-table" style=3D"font-si=
+ze:0px;padding:0 0 8px;word-break:break-word;"><table cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" border=3D"0" style=3D"margin-left: -5px; colo=
+r: #040D14; font-family: Arial; font-size: 15px; line-height: 25px; table-l=
+ayout: auto; width: 100%; border: none;"><tr><td width=3D"32"><a href=3D"ht=
+tps://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQC-2FJd8o2=
+7oMsS5QIYhcSj2g80YxHtHfuHIFAv-2B6eYpoV3Rf5_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk=
+6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlW=
+P9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9=
+fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmw=
+xRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9=
+G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGi=
+MMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwR7xFWxjCzuGiopCGUtAs7foyQhNWH=
+XwVkuEXpqb4u3Z8R9iGdcSIr0cGPkpp2b8tWQNTcVcemgI9orZnRxBgofJgph9bGhXFAzLIj3n4=
+7qCVFosaFazOaKjTlbbgFXPjP36aLL579JCb-2BwGVUtE-2F4vFX2jz-2BtBLmQw3-2BuW9THMP=
+psSr-2F6yAEvmbReLh56IKIXPYBSfPAmOra2ttATZQgdfCesB7y7mX0XgtgB8qFqhOL0cEdPpeI=
+Op8EZdjbjwPg-3D style=3D"color: #040D14; text-decoration: none; font-weight=
+: normal;"><img src=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqww=
+OL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2K7ZGh-2BFQlhNfDe=
+2tTmrvJma3G-2BktqngJL0mFSJwkcTI-3DsdM6_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQ=
+RY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tp=
+f2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV5=
+5isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcY=
+uF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6Sk=
+VQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoB=
+f2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwRMVlo6OLVjpeB5MLveftvECyScneMklJf=
+EzusQEgW1ENNYSj-2BJguvSFYy-2FeBDH421xmImemcDzzymWK-2F1Qb1KQaTkr-2BaXBWoYugu=
+R3M6scRZYnN0lQKFXCt6MDn0SPP7WDSlmUdH2pbWA9kCsmznITow4fkdtvd1wbnjcztnQWo8otU=
+-2FnLurWy3t3mKHWTfVzc3e9R9j4saRPDXoqtVwMeAfZBycteYFnx-2BCwN2yMPdn3zG7hnd9f3=
+9ytMIo71Hw-3D srcset=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqw=
+wOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2K7ZGh-2BFQlhNfD=
+e2tTmrvJlAm2wvtv59HcGTn8NznKS4-3DqXMv_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQR=
+Y1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf=
+2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55=
+isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYu=
+F4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkV=
+QeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf=
+2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyddt60gJ-2FCZ4kQQx5qImfhc9vHcaY-2F5=
+P-2BILWXbJbhxTx3GUK-2FKWgUA05X5qL7TAzsooy-2BIbfCpQ1-2B8v08451yVNO-2B603mmJg=
+SQmPM7vjj0q1Wvg3hgeA89RjUlFGnZErLZYM5jTVAqSZLvM0-2FCogVCpJ-2F6rnIfgt07aUMz6=
+pMngT8uIpDAzJpbldsTAC9lvrMLewtA0Z6SnwiqLTfkwIqtATIURaINLQizw2gQfSLkZS2IzY1e=
+9I7hY5Azfvu9rMk-3D https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58=
+T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2K7ZGh-2BFQlhNfDe2tTm=
+rvJgd4cYkgH8n9N-2BGy-2FhfEYTI-3DXGZg_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY=
+1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2=
+ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55i=
+sSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF=
+4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQ=
+eT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2=
+F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwSULa8vzUpQOcueXV-2BxZY5y3rX90wWzN39=
+lW1alJnnFn7egL28KpA5LpuifIKEALy0nNov6STAJ1ckoDUpypyByAsrXxSvR-2FDljqYV-2FXm=
+LCEc-2F7ZboU71iwO0QJnDJtgwM8dH3ROZbMFD-2F0VBE-2BXBm-2BnJiHEln-2B-2FLTAfabrN=
+qjqLmNsVcV3eRQ3jDzzmUY1SMMsXmRs2bpn-2FdziK4V2gwtTpNRokG5rhsl1XqA63nlqn4HYTE=
+Cbg31MPCYHopfo68-3D 2x" width=3D"32" height=3D"32" align=3D"left" padding=
+=3D"0"></a></td><td width=3D"12"></td><td width=3D"32"><a href=3D"https://s=
+g.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQBaydZW3taDmnSWOI=
+ujLNgWsA7eLrY6cJ0s8EUzk2VCBN1Cs_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2=
+FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2=
+BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7B=
+ZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenb=
+hwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qR=
+s9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bf=
+z0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwz-2FMll7Rl9GxX9-2BzbYn5PXsEA290xitdClAgd=
+WRVYdOQJlLCl4MOoeK6-2Bsq3pnh4quiu-2Fq0xQrneUMJ6ABuZRwoFi8dTclSOtkGOZQ-2B19f=
+r9o243aqBIA1PcO9lGFvvzpBIjDEImBs-2FtizQGcQr0Pls9Ju8mXfxvwmxp7STnHWKOizop6CW=
+SYk9F95eKDKpRSB49G-2B2MJkncAwr-2FJJMTLViJBjq4yf5Ejtkn2nFl6CAcEoRIlIZFbnsU0B=
+7n3xKs0-3D style=3D"color: #040D14; text-decoration: none; font-weight: nor=
+mal;"><img src=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T=
+-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2sB1ZHNMctktBnjaTbOos2=
+kxogHimVh6DNWLTUJZxdlU-3DNfa7_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG=
+8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BT=
+A9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZA=
+OAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhw=
+syPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9=
+EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0=
+Qkct-2BI032IghSJZksxWt1AmL6j-2BEw7Ba1he1-2FZRNuKYEr9zMj1QdEo2L3qoSV4TY7vLd5=
+0aZiVArOrh7xuKCJpmLdhJr-2BeHY8VEGAzkjVidJWNFzOJp2B3R9rl5mQq4tCifho0uFY4112Q=
+ZXfJv56sYA3jU61nZ2FojTeargCGf4KXqd-2FoML2DLkD-2FmE1rIt27-2Bb-2FcLiotLezlvu6=
+vBGDz0Lq4g-2FU7LszcCJiqhiRv9sIRqOUUdA1RtdajWT7yaKjmqFH6D7KVSOBzc9PbPtGA-2Fr=
+9mSOU-3D srcset=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58=
+T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2sB1ZHNMctktBnjaTbOos=
+2oHB03-2BLJWe-2BrXJkRAohNQQ-3DNYVo_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1P=
+Q-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZE=
+A-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isS=
+N7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4l=
+enbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT=
+2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-=
+2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzGOUsKWvqAQN9MV-2BH3fBUC9TXO63VhPYpHjP=
+1oAy1bDV00k672S1Nh6rywzhVTLwGK5yirZiywU6Jz1-2Bx4hFzebpJUOoAS23BKQskiXcqVGFM=
+FHlzkWYfH6Wyg4DuMAPMVOnvUnuIe-2BRp4cTA42FJb0jkA6YPn5sW3TG54aHmwY3nBXQzzldX9=
+VVCktgXJTVv7BJ9uu1Ogw75i1N2-2BooZ-2B2MCJAry5YsjMq7AiIyEOZkOaUT-2BKJY-2FQj7n=
+5y7xBqdY-3D https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1=
+T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2sB1ZHNMctktBnjaTbOos2gsgMV0=
+EWd2Ah29WiBV9tTk-3D1Xaa_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxSh=
+elqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6=
+K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UX=
+AX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4=
+T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2=
+F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2=
+BI032IghSJZksxWt1AmL6j-2BEwVqUTkj-2FxHXPdFWnlXc2yEuTBDAj1upTo925crQZ6XGbQPJ=
+PxNXfA7aSrrfHusFVP5U7XajY5e9z4nwF-2BWOnOM8szbfKP1PG08ZkeN6VDxzJV0Pkxd87MIej=
+UAQGyeBPsGwPY07OY9LuYQ-2F4RiLFuZ88-2FSHZemM21-2FVg2-2FXGB031m6i-2FfUTO5ilZ7=
+-2B-2FHPNimzIrsJMOYeJYvJqwbEeYUJe3mrAS2w0-2FZTvlWgMS3YAAh-2BOopLx0Cdtf3WLAb=
+-2BmZQ4-3D 2x" width=3D"32" height=3D"32" align=3D"left" padding=3D"0"></a>=
+</td><td width=3D"12"></td><td width=3D"32"><a href=3D"https://sg.robinhood=
+.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQI6eAv4BOo-2B-2FIOwWLXGEoUJr=
+k1F4YAVTAaZKTeGNvp3hIRer_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxS=
+helqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F=
+6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9U=
+XAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT=
+4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-=
+2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-=
+2BI032IghSJZksxWt1AmL6j-2BEyCbr0uM3TbySbsRMm0EX7HXTNM3aF1cTssnh02MT6k5HlwFv=
+va3w72EZ8hgQIeW5SGH7dlOsHJBGvLF4QTVRv9ReCyxLC6MkMgSPVdp1P68pAXuWPzzgK54RhoQ=
+pe20yVN19RhVLD05npxWfgpXivFozOuURrgj1V3NILBqJ-2FJf8Wxa3mf-2F2YBbg3Zvm62V36J=
+wUnOXWlzDwVXRWCFagyvNmcLRzkop8nbmr0M-2F0TWrQ-2FNz67LlrOdP8jExMLRUVI-3D styl=
+e=3D"color: #040D14; text-decoration: none; font-weight: normal;"><img src=
+=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQHzz=
+bV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2gA6LR8f-2BZJUiragW7IAKAn1G170Ypk-2F=
+Pln11HH5uZiXuKGkJM3rlVLwyMfRDcl5KaXaC_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQR=
+Y1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf=
+2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55=
+isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYu=
+F4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkV=
+QeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf=
+2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwn-2B00jpGD-2BpdFEvHY2AG33lj8H82L01=
+coEmrCyftsrtvA4GRLRhm-2BMULbc-2B9MrbZPxg91rMSX6XhnuFNA502hPmqUAGCntUoGFgTdm=
+8Gb2begVibJlMXFuNlBiFklXI-2FuSjWPRI129m6KKc6oSnblZb-2BZGP0Py4umnQxtHaSZwxEK=
+2zjtCgwRMCUuCEsfyjdI2eB2t8tHVAWTtvR-2B1BnTbPSb5YynKMIuycr-2FaS11UU2Im3M1pQp=
+VsTacCURo3yuM-3D srcset=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlC=
+JqwwOL58T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2gA6LR8f-2BZJ=
+UiragW7IAKAqGAQs0Nk7NpNTUnmnbFHNU-3D7P1K_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6q=
+QQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9=
+tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fK=
+V55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxR=
+cYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6=
+SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMM=
+oBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExzy0kEXWObaFqF9NHVCVZuoyc3fiGxZG=
+JxXm-2BVmvbHhZSvivnFmYeNekNjsTN-2FU7LwyMt6-2FlS6vzhq08iCXq2m2Hv9w1UaxOqv65r=
+IzkFdNlmsfvV42w2LMGuBzHNQ2IY-2FCe0Eyco92Y2lZ6S9v1GR3yNQc-2BUQnPhr0HUJZRGBjN=
+qtBTH3QJH-2BH11q88dfwD1lY5sgkXWCs2lF-2BdxiOY1c6YK6oHHqbZtlff76p4tH8hP1bSfZe=
+-2FKTy53Wy7kSctQ-3D https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL5=
+8T-2B5u1T1OmQHzzbV6UrzI7FFLgVhbqC0P3WF6E9zgT0my2cqbAwhZ2gA6LR8f-2BZJUiragW7=
+IAKAg7x-2BHi9c-2B9bqR0r6qycOqg-3D0Wn3_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQR=
+Y1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf=
+2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55=
+isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYu=
+F4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkV=
+QeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf=
+2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEz8gV7k6CG3dqOAnOBl-2BNeitqUDJAfk0-2=
+Fmb37piMCrlWlULJI-2BMKrb-2Fl2z63egQ8P-2Bi5WRuISW9DO9EK6Guwocyk4LWsMZ4ghTAAl=
+eHkrggI45HstQ435KSFmsX84EEwXaaBEYxrYVMgMRuwweyzIsIR9lBctKOsZxZK9x65SNABK5xX=
+5wZ4FW5uiTkJSwMmsjXyC6O-2FI7i4IpDNxVGZEVbhnjbWsDhpsggeFq-2FMZCBGV0TfLVfokTT=
+XaiL0cTFiUU-3D 2x" width=3D"32" height=3D"32" align=3D"left" padding=3D"0">=
+</a></td><td colspan=3D"100"><!-- NOTE(stuart.olivera): Using colspan=3D100=
+ because Apple Mail resizes all table cells to be equal otherwise --><!-- N=
+OTE(stuart.olivera): Empty to prevent auto-layout within open horizontal sp=
+ace --></td></tr></table></td></tr><tr><td align=3D"left" style=3D"font-siz=
+e:0px;padding:12px 0px;padding-top:0;padding-bottom:0;word-break:break-word=
+;"><div style=3D"font-family:Arial;font-size:15px;line-height:25px;text-ali=
+gn:left;color:#040D14;"><a href=3D"https://sg.robinhood.com/ls/click?upn=3D=
+u001.XlCJqwwOL58T-2B5u1T1OmQAdo9nT4uIq-2BTTgQvcfqFjw-3DGb75_kdYiKv-2B63pC41=
+O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa=
+30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0Py=
+Px3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2i=
+K4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrD=
+HmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZND=
+K06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyLf6KP8enjPFK=
+PTK-2FDUvZMGo2ADnImcroKJPQ1IJFJrqStSdfyH-2BEIKZLWGMaNrN1fYUsn24JMBUQ-2Fdjzx=
+at8jcQ53olN59vm6k-2B0TKQiO7gNVZoamx9E43CXT25GybSodk8S-2FP-2FLXhlF6l01YH9sji=
+bheCidQzw2H23RwxqPC-2FqdZald1C0Gqb2iXVpbB9S0Go6QmUU7yWQZr7vXhEb9n8bQqs5fAsd=
+YWfbHp1atFqMCcnjKowTHcho7afOx9-2BHc-3D style=3D"color: #040D14; text-decora=
+tion: none; font-weight: normal;">Home</a><br><a href=3D"https://sg.robinho=
+od.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQC5o9ZgNv9XjsTHRXUo18-2F2H=
+QdtCIp1qo8-2FZpWXkFBvYYgKG_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8Tr=
+xShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-=
+2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY=
+9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyP=
+qT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4=
+G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkc=
+t-2BI032IghSJZksxWt1AmL6j-2BEykl8syG8AoyEkau-2B8JbcGcYTGdqO9UPrW4jCQxO0Fp97=
+OhRU-2FxKMy-2Bgbe7aR9xQsr0XihH7Auo-2BAJ-2BcSqRGi-2FbhxpVd3VoKPUPxI64uhXYZQG=
+GjW8nsaQjHWzqjAN8y3KRyB8W6toZxXmxDrNaaDaxp26JAaJ9FfUvUzmSbncoZkVyCAf6eGgxdF=
+tzXa6-2BIdkxFd1to4zBiuLrDXFuNDNt8Ke3QKC1yPY7Ue4t2ShetHwdOYwjs0EmagoGG1uNMnI=
+-3D style=3D"color: #040D14; text-decoration: none; font-weight: normal;">H=
+elp Center</a><br><a href=3D"https://sg.robinhood.com/ls/click?upn=3Du001.X=
+lCJqwwOL58T-2B5u1T1OmQAlydjR5f4mdTXdcT7feJOyUGkWx9kEyzNIqrbFLY0LvYHq6_kdYiK=
+v-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi=
+0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca=
+-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9=
+qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0Ks=
+ztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZD=
+hGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzMf=
+6qLNX5wZa4cFybLYyN9X-2BaGbKqci1Hf1GlLQlXOrGzdPgX9c5j4nothV-2F4Zo9Cp-2FtiLzt=
+sX2YaxukUHD5en1ZFXbzg4vt-2BWtI89tmcE5ps3qzyGRTWGw-2BXEw26zc1eZO8PZrSI9aFF-2=
+FivT07G7OIC0vNKvf0bGQ1BqNXqKoTQB7t1VN6-2BSyFzE92mE35cU-2FX0m2sB7vm-2BsWJ2xT=
+6rzz08qrY2NUuZLF7Ubglq-2Fn2jjmr4bjBXoowmUSUEEhw2s-3D style=3D"color: #040D1=
+4; text-decoration: none; font-weight: normal;">Contact Us</a><br><a href=
+=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQKjd=
+Gw98ELnTZqb6ux0URJvyR3cYThi90W-2FQqo2XIgxj7qGy_kdYiKv-2B63pC41O6zclZ3Tdf7m5=
+XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6z=
+gBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-=
+2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNR=
+DUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE=
+28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FY=
+akGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExOnaI5yWVbm7UKb4FFZ0Q65kcG=
+ZwV7lkLlVW9N2uZLesQRyFyPWVD6kYPxESyJg7dD8Bw2-2FWyCdx0knYSYvLuurh-2BfJ-2Brx5=
+Nlw8bzWSUi3TL8OsiIhxAX6d-2FQGxk1t-2F6Et41vr1k6WPexZYqm7T1sbi4DzEGnP4lTo1byv=
+tC-2BssoW8qR2C3lGYDd7WdPeBHdcW0qkIRyiL2sXVycgCf5xMRlsZOEeZQUHKz7OXFIUv7JOoX=
+Gb6kcclN1flQyD9CVw-3D style=3D"color: #040D14; text-decoration: none; font-=
+weight: normal;">Privacy Policy</a></div></td></tr></tbody></table></div><!=
+--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></d=
+iv><!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-outlook" role=
+=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#F6F6F6" =
+><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactl=
+y;"><![endif]--><div class=3D"mj-section-rh" style=3D"background:#F6F6F6;ba=
+ckground-color:#F6F6F6;margin:0px auto;max-width:652px;"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"background:#F6F6F6;background-color:#F6F6F6;width:100%;"><tbody>=
+<tr><td style=3D"border:1px solid #B4BDC2;border-bottom:1;border-top:none;d=
+irection:ltr;font-size:0px;padding:20px 0;padding-bottom:34px;padding-left:=
+32px;padding-right:32px;padding-top:0;text-align:center;"><!--[if mso | IE]=
+><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"><tr><td class=3D"footer-column-outlook footer-disclosure-outlook footer=
+-disclosure-muted-outlook" style=3D"vertical-align:top;width:586px;" ><![en=
+dif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix footer-column f=
+ooter-disclosure footer-disclosure-muted" style=3D"font-size:0px;text-align=
+:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"vertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"left"=
+ style=3D"font-size: 0px; padding: 12px 0px; word-break: break-word; paddin=
+g-bottom: 0px;"><div style=3D"font-family: Arial; text-align: left; font-si=
+ze: 12px; line-height: 22px; color: #6F787E;">IRS contribution limits are $=
+6,500 ($7,500 if you're age 50 or older) for 2023 and $7,000 ($8,000 if you=
+=E2=80=99re age 50 or older) for 2024. Visit the <a href=3D"https://sg.robi=
+nhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQJlE-2F5Oxvd-2FKkH7lVD6=
+4J6jLYwMtIn7pMJ8o57vfQcH2X019Xv-2F8v0FskPkdX2XJt21CMmmiP6fbSow3-2BtHqELGoMi=
+BR3JPed7SfW2XQdBJRyisUB7CcgoenFbs-2F6RVUYtrI8JLvZdYVYqYNLUFlerbc6wpbiNwLYa3=
+0oMLmm3U8L9EiA5JhlE8eKHnmIW7KDokoA6W61t6WIrTL2rEfBMqqgeg1702peD4zPb2SN-2F-2=
+BJSe8ky9haMV9eBtskPBq9ZA-3D-3DhNnb_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1P=
+Q-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZE=
+A-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isS=
+N7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4l=
+enbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT=
+2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-=
+2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzHjlzEyKDcVzXFnbbSdQYUSIBQWHcOEJgGmeDh=
+bEPTYH838qd6XGArQpj3P2PSDtwTlNuIxaId9-2BJkGXE65aSrjBzovFMplTh5CL63Y1dgO5loF=
+G2WXhNNG4jsAKyh6k3kzkekuuThdhpPaSONVPtjf3o9xV74T1v8wzkwG1iQ4mNX1CNeELpPkKEU=
+r29iAruEJDT1FHPdEP06sCYiigPgq4AcFv3YcY4roUv0WKQ3o3o4UM3U9uhvPpiBUEMJO88-3D =
+style=3D"color: #040D14; text-decoration: none; font-weight: normal;">IRS s=
+ite</a> for more information. The annual tax filing deadline is typically A=
+pril 15th but may vary by year or individual taxpayer circumstances.</div><=
+/td></tr><tr><td align=3D"left" style=3D"font-size: 0px; padding: 12px 0px;=
+ word-break: break-word; padding-bottom: 0px;"><div style=3D"font-family: A=
+rial; text-align: left; font-size: 12px; line-height: 22px; color: #6F787E;=
+">The 3% matching on contribution requires a subscription with Robinhood Go=
+ld (fees apply), must be subscribed to Gold for 1 year after your contribut=
+ion to keep the full 3% match. You must have compensation (wage income) in =
+order to contribute to an IRA. The funds that earned the match must be kept=
+ in the account for at least 5 years to avoid a potential Early IRA Match R=
+emoval Fee. For more information refer to the <a href=3D"https://sg.robinho=
+od.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQBtPVLPgt-2FKtxcXAneb16TUM=
+IsB-2BWptDkzwjPd4hO3wgKsduXY2PtW24J48hSbCIbPi90UCb6MjXNir-2FKK0poXI-3DCdnk_=
+kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWh=
+iXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BOb=
+XNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9t=
+fmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMy=
+KW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D=
+18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2=
+BEwy64HWUQfrfoVDlUEf5gilzqA-2BnKUtjWlm4ULSBqKHzzzn7TkqjoLTU25ejqoQySeRe3mbR=
+iV-2Fi-2FykZWaDprpXPOn3zp5FVkSe4kz-2FtI074VcbJsIIiH33DjcdDK9BAr25BlXPBSbaHa=
+eTi3o47mYLPi7I7XuG0IFNUcm672PZsIjZHrEoe0tpzXn282WMC734fuDPwsGxHVZp-2BAMQPxf=
+FUcIxwycXWRHzJPC0Ut5KEf5oxI3ZHmiwAEdXk-2B53KcU-3D style=3D"color: #040D14; =
+text-decoration: none; font-weight: normal;">IRA Match FAQ</a>.</div></td><=
+/tr><tr><td align=3D"left" style=3D"font-size: 0px; padding: 12px 0px; word=
+-break: break-word; padding-bottom: 0px;"><div style=3D"font-family: Arial;=
+ text-align: left; font-size: 12px; line-height: 22px; color: #6F787E;">Fun=
+ds being contributed into or distributed from retirement accounts may entai=
+l tax consequences. Contributions are limited and withdrawals before age 59=
+ 1/2 may be subject to a penalty tax. Robinhood does not provide tax advice=
+; please consult with a tax adviser if you have questions. This is not a re=
+commendation to roll over.</div></td></tr><tr><td align=3D"left" style=3D"f=
+ont-size: 0px; padding: 12px 0px; word-break: break-word; padding-bottom: 0=
+px;"><div style=3D"font-family: Arial; text-align: left; font-size: 12px; l=
+ine-height: 22px; color: #6F787E;">The Robinhood IRA is available to any U.=
+S. customer with a Robinhood brokerage account in good standing.</div></td>=
+</tr><tr><td align=3D"left" style=3D"font-size: 0px; padding: 12px 0px; wor=
+d-break: break-word; padding-bottom: 0px;"><div style=3D"font-family: Arial=
+; text-align: left; font-size: 12px; line-height: 22px; color: #6F787E;">Al=
+l investments involve risk and loss of principal is possible.</div></td></t=
+r><tr><td align=3D"left" style=3D"font-size: 0px; padding: 12px 0px; word-b=
+reak: break-word; padding-bottom: 0px;"><div style=3D"font-family: Arial; t=
+ext-align: left; font-size: 12px; line-height: 22px; color: #6F787E;">Robin=
+hood Financial LLC (member <a href=3D"https://sg.robinhood.com/ls/click?upn=
+=3Du001.XlCJqwwOL58T-2B5u1T1OmQN5qR20sNVDxRvBg2BPhK1w-3Dp19f_kdYiKv-2B63pC4=
+1O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovH=
+a30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0P=
+yPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2=
+iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucr=
+DHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZN=
+DK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExWJvss0-2BmH=
+aoe6VCelo7I5pNRqZIE0v1a2dz-2FoQrKIWJ0WMRQUEP07cpfVBKteMDLlGuwgVLw65VXp9d8zq=
+MY-2B13-2BSW6x6hU5XpOhK7t-2BTFVxAHqY2GXW8l9srdtF7jCS2Sr5WL-2B4VAZkfYSHEK1zW=
+VssgBXoNWrVJ9cCWRu8Cq-2FqOoCw6XTnQQ2bKYwTCUWtw0658r6ZISbhKsCrsLznzuQo63-2F4=
+ej6xu-2FUiAbrSipuiSq75PZs9ZjIGBz5n6ZUI-3D style=3D"color: #040D14; text-dec=
+oration: none; font-weight: normal;">SIPC</a>), is a registered broker deal=
+er. Robinhood Securities, LLC (member <a href=3D"https://sg.robinhood.com/l=
+s/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQN5qR20sNVDxRvBg2BPhK1w-3DOv2e_kdY=
+iKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXD=
+di0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQ=
+ca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmh=
+L9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0=
+KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18F=
+ZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEw=
+Iz0wMlzuupf-2FmfNfhlZLFdSLgNTpVm3PBOmosKnqhYAb3NBTvvECXh5k471Iyg-2FNJLmkrcy=
+XmlhWOuBEgZv2GUUzNn7q7U7YHS1zrb0bYyBlBkpc5rlQLvXWCPAbpfTAVhfaMRsaAQRs3dquai=
+79UIBczFg0Rp3Kqs0jOY4eu0K-2BmwqrB9yDBSh2Kizg6DJY9Z1KDeY2xicLwS3TtiyHLDQORxb=
+gpTZ4jOP9TfkKEUpRNjeXz6lspZAAvTjM9erI-3D style=3D"color: #040D14; text-deco=
+ration: none; font-weight: normal;">SIPC</a>), is a registered broker deale=
+r and provides brokerage clearing services. All are subsidiaries of Robinho=
+od Markets, Inc. (=E2=80=98Robinhood=E2=80=99).</div></td></tr><tr><td alig=
+n=3D"left" style=3D"font-size: 0px; padding: 12px 0px; word-break: break-wo=
+rd; padding-bottom: 0px;"><div style=3D"font-family: Arial; text-align: lef=
+t; font-size: 12px; line-height: 22px; color: #6F787E;">=C2=A9 2024 Robinho=
+od Markets, Inc. 3=E2=80=8B510017</div></td></tr><tr><td align=3D"left" cla=
+ss=3D"footer-unsubscribe-text" style=3D"font-size: 0px; padding: 12px 0px; =
+word-break: break-word; padding-bottom: 0px; padding-top: 12px;"><div style=
+=3D"font-family: Arial; text-align: left; font-size: 12px; line-height: 22p=
+x; color: #6F787E;"><a target=3D"_blank" href=3D"https://sg.robinhood.com/l=
+s/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQLUovGyCcSCzSB9CaVOaEaRoM7wS8ERxZU=
+kKwoyHVnuBoiGTlBcbfplRk2EZJBGIL8vHIItI4pkYhgvZaobnjJ0W-2B46iDUxWIbpb0CLvXuf=
+bvHnYLQfad-2F6KcFa1vjPVOBZPB7iQzMh30hO6vRM6rP1FM20SNk4J6UVrYujbtcc-2Bc-sJ_k=
+dYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhi=
+XDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObX=
+NQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tf=
+mhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyK=
+W0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D1=
+8FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2B=
+ExqgoSfnfUM1OR3keLMChYlKCBDEAeRsBKjJvDrraElBbrMJfLswZCBF0q4rC6DtjVukYN2VQJq=
+-2BcKhAP8DoO5h1xfxzziqBCl4ttN6fCXRTvSidIKyuBrue3Ja05iIjELhye8TKliqD-2B6d3rm=
+GhGDtCbQuXf8FXwGjsub-2BCPxGL4RBaaDF9vKlTq-2FCoL2hME1jz0Bi9JYd7-2F2Pa8i5Mi5b=
+djH9pJjbal-2FLE-2F8yp-2Fulul-2BAbQ7YIH0NGibWQeFolyk-3D class=3D"link-footer=
+-unsubscribe" style=3D"border-bottom: 1px solid #040D14; text-decoration: n=
+one; font-weight: normal; color: #6F787E; border-bottom-color: #6F787E;">Un=
+subscribe</a> <a target=3D"_blank" href=3D"https://sg.robinhood.com/ls/clic=
+k?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQLUovGyCcSCzSB9CaVOaEaStUK2NBjsu466OcBW2=
+WhBnlnY1snG-2ByvqvKQqLp8A-2FG-2Bx4UbImhtkTouX9-2Fre5ZD42E4QcIgHImaxFYLle5I2=
+VJb2u_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55L=
+SK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdR=
+D-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953z=
+UD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRC=
+ggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQss=
+Lf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1A=
+mL6j-2BEzmitv4Hvm7hiQ-2F9SsCm1UnaRXMPdUc2xApeyRTgD87ziIvXyUZQHEHxqTexbvPrFH=
+UZIog28FZiEOvVnomphySzi0MDrrWK8Vf-2FxlDsPwbtNd5hejpzJPQZ3K8yx-2BebFn0buBbHa=
+Jr9a2ljE-2FW4zbnXWy3C-2BS0a-2BmAXhiypYiG46pYd5EQEksJ29HjqO98mLvn6D9udfzWwUL=
+Wwa-2BJQ3YQY1jeLOWf54cRkvT1nshOY5-2Fodt8HGjg9089WAnGVS0s-3D class=3D"link-f=
+ooter-unsubscribe" style=3D"border-bottom: 1px solid #040D14; text-decorati=
+on: none; font-weight: normal; color: #6F787E; border-bottom-color: #6F787E=
+;">Subscription settings</a></div></td></tr></tbody></table></div><!--[if m=
+so | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!--=
+[if mso | IE]></td></tr></table><![endif]--></div></body></html>
+--1c227061a3b659842043c4c0cb42ba023ec7a37cedbb79c00fab714a7b5e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><title></title><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compat=
+ible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=3D"Content-Typ=
+e" content=3D"text/html; charset=3DUTF-8"><meta name=3D"viewport" content=
+=3D"width=3Ddevice-width,initial-scale=3D1"><style type=3D"text/css">#outlo=
+ok a {
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+      display: block;
+      margin: 13px 0;
+    }</style><!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }</style><style media=3D"screen and (min-width:480px)">.moz-text-html .=
+mj-column-per-100 {
+      width: 100% !important;
+      max-width: 100%;
+    }</style><style type=3D"text/css">@media only screen and (max-width:480=
+px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }</style><style type=3D"text/css">.buttonSecondary a {
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+    }
+
+    .bodyText {}
+
+    .bodyText div {}
+
+    @media only screen and (min-width: 480px) {
+
+      .image-lead-override,
+      .image-lead-override td,
+      .image-lead-override img {
+        width: 471px !important;
+        height: 282px !important;
+      }
+    }
+
+    @media only screen and (min-width:480px) {
+      .mj-section-rh>table>tbody>tr>td {
+        padding-left: 90px !important;
+        padding-right: 90px !important;
+      }
+
+      .header-image-full-bleed>table>tbody>tr>td {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }</style><meta name=3D"color-scheme" content=3D"light"><meta name=3D"su=
+pported-color-schemes" content=3D"light"></head><body style=3D"word-spacing=
+:normal;background-color:#FFFFFF;"><div style=3D"display:none;font-size:1px=
+;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overf=
+low:hidden;">Sign up to Gold and contribute to your 2023 IRA by April 15 an=
+d 2024 IRA limit to earn extra.</div><div class=3D"body" style=3D"padding: =
+6px; background-color: #FFFFFF;"><!--[if mso | IE]><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-out=
+look" role=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D=
+"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><v:rect style=3D"width:652px;" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" fill=3D"true" stroke=3D"false"><v:fill origin=3D"0.5, 0" positi=
+on=3D"0.5, 0" src=3D"https://cdn.robinhood.com/post_office_email_assets/hea=
+derBg.png" color=3D"#ffffff" type=3D"tile" /><v:textbox style=3D"mso-fit-sh=
+ape-to-text:true" inset=3D"0,0,0,0"><![endif]--><div class=3D"mj-section-rh=
+" style=3D"background:#ffffff url('https://cdn.robinhood.com/post_office_em=
+ail_assets/headerBg.png') center top / auto repeat;background-position:cent=
+er top;background-repeat:repeat;background-size:auto;margin:0px auto;max-wi=
+dth:652px;"><div style=3D"line-height:0;font-size:0;"><table align=3D"cente=
+r" background=3D"https://cdn.robinhood.com/post_office_email_assets/headerB=
+g.png" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"background:#ffffff url('https://cdn.robinhood.com/post_office_e=
+mail_assets/headerBg.png') center top / auto repeat;background-position:cen=
+ter top;background-repeat:repeat;background-size:auto;width:100%;"><tbody><=
+tr><td style=3D"border:1px solid #B4BDC2;border-bottom:1;border-top:1;direc=
+tion:ltr;font-size:0px;padding:20px 0;padding-bottom:18px;padding-left:32px=
+;padding-right:32px;padding-top:21px;text-align:center;"><!--[if mso | IE]>=
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td class=3D"" style=3D"vertical-align:top;width:586px;" ><![endif]-=
+-><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:=
+0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;w=
+idth:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;pa=
+dding:0;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"font-s=
+ize:0px;padding:0px;word-break:break-word;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:col=
+lapse;border-spacing:0px;"><tbody><tr><td style=3D"width:114px;"><img alt=
+=3D"Robinhood logo" height=3D"28" src=3D"https://cdn.robinhood.com/post_off=
+ice_email_assets/Logotype%402x.png" srcset=3D"https://cdn.robinhood.com/pos=
+t_office_email_assets/Logotype.png, https://cdn.robinhood.com/post_office_e=
+mail_assets/Logotype%402x.png 2x" style=3D"border:0;display:block;outline:n=
+one;text-decoration:none;height:28px;width:100%;font-size:15px;" width=3D"1=
+14"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div></div><!--[if mso | IE]></v:textbox></v:rect></td></tr></=
+table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"header-image-full-bleed
+-outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -ou=
+tlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlo=
+ok -outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook =
+-outlook -outlook -outlook -outlook -outlook -outlook -outlook -outlook -ou=
+tlook -outlook" role=3D"presentation" style=3D"width:652px;" width=3D"652" =
+bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-lin=
+e-height-rule:exactly;"><![endif]--><div class=3D"header-image-full-bleed" =
+style=3D"background:#ffffff;background-color:#ffffff;margin:0px auto;max-wi=
+dth:652px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-colo=
+r:#ffffff;width:100%;"><tbody><tr><td style=3D"border:1px solid #B4BDC2;bor=
+der-bottom:1;border-top:none;direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;text-ali=
+gn:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align=
+:top;width:650px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-=
+group-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inl=
+ine-block;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top;=
+" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"header-image" sty=
+le=3D"font-size:0px;padding:0px;word-break:break-word;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-=
+collapse:collapse;border-spacing:0px;"><tbody><tr><td style=3D"width:650px;=
+"><img alt height=3D"auto" src=3D"https://images.ctfassets.net/7as2sgxpn9mx=
+/7udOqSF6HcrQWIDg99q4fM/a57a80e7480daadabbf10c03efc1c43f/graphic.png?fit=3D=
+fill&w=3D1300&h=3D601" srcset=3D"https://images.ctfassets.net/7as2sgxpn9mx/=
+7udOqSF6HcrQWIDg99q4fM/a57a80e7480daadabbf10c03efc1c43f/graphic.png?fit=3Df=
+ill&w=3D400&h=3D185 400w, https://images.ctfassets.net/7as2sgxpn9mx/7udOqSF=
+6HcrQWIDg99q4fM/a57a80e7480daadabbf10c03efc1c43f/graphic.png?fit=3Dfill&w=
+=3D800&h=3D370 800w, https://images.ctfassets.net/7as2sgxpn9mx/7udOqSF6HcrQ=
+WIDg99q4fM/a57a80e7480daadabbf10c03efc1c43f/graphic.png?fit=3Dfill&w=3D650&=
+h=3D301 650w, https://images.ctfassets.net/7as2sgxpn9mx/7udOqSF6HcrQWIDg99q=
+4fM/a57a80e7480daadabbf10c03efc1c43f/graphic.png?fit=3Dfill&w=3D1300&h=3D60=
+1 1300w" style=3D"border:0;display:block;outline:none;text-decoration:none;=
+height:auto;width:100%;font-size:15px;" width=3D"650"></td></tr></tbody></t=
+able></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><!=
+[endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tab=
+le><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"bodyText-outlook mj-section-rh-outlook" role=3D"presentation" sty=
+le=3D"width:652px;" width=3D"652" bgcolor=3D"#ffffff" ><tr><td style=3D"lin=
+e-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div =
+class=3D"bodyText mj-section-rh" style=3D"background:#ffffff;background-col=
+or:#ffffff;margin:0px auto;max-width:652px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#ffffff;background-color:#ffffff;width:100%;"><tbody><tr><td styl=
+e=3D"border:1px solid #B4BDC2;border-bottom:none;border-top:none;direction:=
+ltr;font-size:0px;padding:20px 0;padding-bottom:0;padding-left:32px;padding=
+-right:32px;padding-top:0;text-align:center;"><!--[if mso | IE]><table role=
+=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td =
+class=3D"" style=3D"vertical-align:top;width:586px;" ><![endif]--><div clas=
+s=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-al=
+ign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size:0px;padding:12px 0px;padding-top:24px;padding-bottom=
+:12px;word-break:break-word;"><div style=3D"font-family:Arial;font-size:24p=
+x;line-height:29px;text-align:left;color:#040D14;">Max out your 2023 IRA co=
+ntributions by tomorrow</div></td></tr></tbody></table></div><!--[if mso | =
+IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if m=
+so | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"bodyText-outlook mj-section-rh-outlook" r=
+ole=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#fffff=
+f" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exa=
+ctly;"><![endif]--><div class=3D"bodyText mj-section-rh" style=3D"backgroun=
+d:#ffffff;background-color:#ffffff;margin:0px auto;max-width:652px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"background:#ffffff;background-color:#ffffff;width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:none;bo=
+rder-top:none;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;p=
+adding-left:32px;padding-right:32px;padding-top:0;text-align:center;"><!--[=
+if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:586px;=
+" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"vertical-align:top;" width=3D"100%"><=
+tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:12px 0px;word-b=
+reak:break-word;"><div style=3D"font-family:Arial;font-size:15px;line-heigh=
+t:25px;text-align:left;color:#040D14;">Max, sign up for Robinhood Gold and =
+max out your 2023 IRA contributions by tomorrow as well as your 2024 contri=
+butions to <b>get up to a $405 match</b> <b>on us</b>.</div></td></tr><tr><=
+td align=3D"left" style=3D"font-size:0px;padding:12px 0px;word-break:break-=
+word;"><div style=3D"font-family:Arial;font-size:15px;line-height:25px;text=
+-align:left;color:#040D14;">Full offer ends tomorrow.</div></td></tr></tbod=
+y></table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr><=
+/tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-=
+rh-outlook" role=3D"presentation" style=3D"width:652px;" width=3D"652" bgco=
+lor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-he=
+ight-rule:exactly;"><![endif]--><div class=3D"mj-section-rh" style=3D"backg=
+round:#ffffff;background-color:#ffffff;margin:0px auto;max-width:652px;"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:#ffffff;background-color:#ffffff;widt=
+h:100%;"><tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:non=
+e;border-top:none;direction:ltr;font-size:0px;padding:20px 0;padding-bottom=
+:0;padding-left:32px;padding-right:32px;padding-top:0;text-align:center;"><=
+!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:58=
+6px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"vertical-align:top;" width=3D"100%=
+"><tbody><tr><td align=3D"left" vertical-align=3D"middle" style=3D"font-siz=
+e:0px;padding:12px 0px;word-break:break-word;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:=
+separate;line-height:100%;"><tbody><tr><td align=3D"center" bgcolor=3D"#040=
+D14" role=3D"presentation" style=3D"border:1px solid #b4bdc2;border-radius:=
+22px;cursor:auto;mso-padding-alt:11px 30px;background:#040D14;" valign=3D"m=
+iddle"><a href=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T=
+-2B5u1T1OmQMS1AD6acGniJ6TKTu689vp3o-2FJMN9p514nYl9GBh2HxsNQ5zCgP06tCReY7CIK=
+eIA-3D-3DtrQA_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHk=
+sh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9o=
+dUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm=
+08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6c=
+a2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poi=
+kIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJ=
+ZksxWt1AmL6j-2BEwBj0xGm8pYdkHvwT4t1QKvlW5xmiQKjUNTYKO4faRG2doKShIbWUJCPOZF4=
+Z09vMv4QNEm-2B-2F-2B7odTyCjm8xWILIgTV5dAOkfvhJmazGP-2FKaSBtC0829UByobeIYomQ=
+H9kMwxbPkSmoBEGC3XUwg6gSF5Y8oJTz1mqQl9mJhrcsQLfbJ-2Be8gnqZg7Asq5DuyDQ6xo7NM=
+mLdKwK2Nw0qAiQDgbmr5wbcqQkOJVadwp9IeJk0qItZO9UIeNPFRSFdr5E-3D" style=3D"dis=
+play: inline-block; background: #040D14; color: #ffffff; font-family: Arial=
+; font-size: 15px; font-weight: bold; line-height: 22px; margin: 0; text-de=
+coration: none; text-transform: none; padding: 11px 30px; mso-padding-alt: =
+0px; border-radius: 22px;" target=3D"_blank">Get extra</a></td></tr></tbody=
+></table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tabl=
+e><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr><=
+/table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"mj-section-rh-outlook" role=3D"presentation" style=3D"width=
+:652px;" width=3D"652" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div class=3D"mj=
+-section-rh" style=3D"background:#ffffff;background-color:#ffffff;margin:0p=
+x auto;max-width:652px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#ffffff;=
+background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"border:1px so=
+lid #B4BDC2;border-bottom:none;border-top:none;direction:ltr;font-size:0px;=
+padding:20px 0;padding-bottom:0;padding-left:32px;padding-right:32px;paddin=
+g-top:0;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=
+=3D"vertical-align:top;width:586px;" ><![endif]--><div class=3D"mj-column-p=
+er-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;directi=
+on:ltr;display:inline-block;vertical-align:top;width:100%;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"v=
+ertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"f=
+ont-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-fa=
+mily:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">=
+For the 2023 tax year, you=E2=80=99d earn $195 on a maximum $6,500 contribu=
+tion by April 15, 2024.</div></td></tr><tr><td align=3D"left" style=3D"font=
+-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-famil=
+y:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">For=
+ the 2024 tax year, you can still earn $210 on a maximum $7,000 contributio=
+n through April 15, 2025.</div></td></tr><tr><td align=3D"left" style=3D"fo=
+nt-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-fam=
+ily:Arial;font-size:15px;line-height:25px;text-align:left;color:#040D14;">S=
+ubscription fee and terms apply.</div></td></tr><tr><td align=3D"left" styl=
+e=3D"font-size:0px;padding:12px 0px;word-break:break-word;"><div style=3D"f=
+ont-family:Arial;font-size:15px;line-height:25px;text-align:left;color:#6F7=
+87E;">=E2=80=93 The Robinhood team</div></td></tr><tr><td align=3D"left" st=
+yle=3D"font-size:0px;padding:12px 0px;padding-top:0;padding-bottom:22px;wor=
+d-break:break-word;"><div style=3D"font-family:Arial;font-size:15px;line-he=
+ight:25px;text-align:left;color:#040D14;"></div></td></tr></tbody></table><=
+/div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-outlook"=
+ role=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#F6F=
+6F6" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div class=3D"mj-section-rh" style=3D"background:#F6F6=
+F6;background-color:#F6F6F6;margin:0px auto;max-width:652px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#F6F6F6;background-color:#F6F6F6;width:100%;"><=
+tbody><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:none;border-t=
+op:1;direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0;padding-le=
+ft:32px;padding-right:32px;padding-top:30px;text-align:center;"><!--[if mso=
+ | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td class=3D"footer-column-outlook" style=3D"vertical-align:t=
+op;width:586px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-gr=
+oup-fix footer-column" style=3D"font-size:0px;text-align:left;direction:ltr=
+;display:inline-block;vertical-align:top;width:100%;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-=
+align:top;" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size=
+:0px;padding:12px 0px;word-break:break-word;"><div style=3D"font-family:Ari=
+al;font-size:15px;line-height:25px;text-align:left;color:#040D14;"></div></=
+td></tr><tr><td align=3D"left" class=3D"social-link-table" style=3D"font-si=
+ze:0px;padding:0 0 8px;word-break:break-word;"><table cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" border=3D"0" style=3D"margin-left: -5px; colo=
+r: #040D14; font-family: Arial; font-size: 15px; line-height: 25px; table-l=
+ayout: auto; width: 100%; border: none;"><tr><td width=3D"32"><a href=3D"ht=
+tps://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQC-2FJd8o2=
+7oMsS5QIYhcSj2jaBYUDetRpfujWkMF81ix32lg8_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6q=
+QQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9=
+tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fK=
+V55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxR=
+cYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6=
+SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMM=
+oBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzGy1ic2TWBnnTQj-2F-2BvHGIeY51bfR=
+Yd27Js5-2F56R-2B1pF0GbgizH7aE8N8hWuc7FPrSacbK6LJ-2FdibyhcW2bbK04DNIVrlksnG8=
+Mh-2Fp3IZItta-2FgPh6EnGueWNbVDTyvdfP91jZBQzZybAvI-2BBOSxVq-2FnGVAOhEElEHDyq=
+wFBOkCQiD0OtCmtt6paByyp5x7nXNXjI8CCR9BI9FpfpnxGUhOl3fRUXKchqQ3D2TNR82GnG2vI=
+OEFCD-2FmxMFRRd0hgLM-3D" style=3D"color: #040D14; text-decoration: none; fo=
+nt-weight: normal;"><img src=3D"https://cdn.robinhood.com/post_office_email=
+_assets/Facebook-2%402x.png" srcset=3D"https://cdn.robinhood.com/post_offic=
+e_email_assets/Facebook-2.png, https://cdn.robinhood.com/post_office_email_=
+assets/Facebook-2%402x.png 2x" width=3D"32" height=3D"32" align=3D"left" pa=
+dding=3D"0"></a></td><td width=3D"12"></td><td width=3D"32"><a href=3D"http=
+s://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQBaydZW3taDm=
+nSWOIujLNgUy-2B1odq3uyEM9xIM-2Bl62SRXTbY_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6q=
+QQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9=
+tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fK=
+V55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxR=
+cYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6=
+SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMM=
+oBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyqq9dZhG8DuQqyx-2B6vp9lEjz-2FwN1=
+Cx-2FAuthns1aXtPHqtCWkjzgI2nWpCBHeu-2BO09UN8Fqlms-2Ffrs9KpTYcdDkUS5Omr0iv0a=
+8UIpZ4x8ukSxFzKDqkSziXt0fnFwOiDJdFdqpiW6Biam1gmejbEc1QZ61CCzqC-2FoFRjsf-2Bv=
+cXCgmPQqOXzgG045aWS3f81bCEquIuzelm5pjHhSIJ-2FX8NSF9hz0KuN38JP0FJ3HfSEc7N-2B=
+crV4KUDAfUf8T6nqnU-3D" style=3D"color: #040D14; text-decoration: none; font=
+-weight: normal;"><img src=3D"https://cdn.robinhood.com/post_office_email_a=
+ssets/Twitter-2%402x.png" srcset=3D"https://cdn.robinhood.com/post_office_e=
+mail_assets/Twitter-2.png, https://cdn.robinhood.com/post_office_email_asse=
+ts/Twitter-2%402x.png 2x" width=3D"32" height=3D"32" align=3D"left" padding=
+=3D"0"></a></td><td width=3D"12"></td><td width=3D"32"><a href=3D"https://s=
+g.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQI6eAv4BOo-2B-2FI=
+OwWLXGEoUJs2wDUksj-2BLHvYwN-2FJTVUR7cOF_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQ=
+QRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9t=
+pf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV=
+55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRc=
+YuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6S=
+kVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMo=
+Bf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzd5LjxItu0opgafQE8dJZKkGfvFRr9pgq=
+GPiCR44HDM9ztDkOqMYV7xv1Pfh0RrYJtPpzobc9B-2B7TLe43vABa9k4y7OdPjbhi66E8KkZ3D=
+-2FP3CItGhu8nldOO70YwitVQ-2BW2AgbC87E9xL54xQk27pDW2O9W999w6ZxEB7rnPS7x3gJJd=
+-2BbSyzknNjaTvVdLSnDvcfe-2BrSZQHgC3JaVLzy-2Fm01CUVxDT1c92r4V5hl4ghqGADT2xqf=
+H8YNDit7Q-2Fc-3D" style=3D"color: #040D14; text-decoration: none; font-weig=
+ht: normal;"><img src=3D"https://cdn.robinhood.com/post_office_email_assets=
+/Instagram-2%402x.png" srcset=3D"https://cdn.robinhood.com/post_office_emai=
+l_assets/Instagram-2.png, https://cdn.robinhood.com/post_office_email_asset=
+s/Instagram-2%402x.png 2x" width=3D"32" height=3D"32" align=3D"left" paddin=
+g=3D"0"></a></td><td colspan=3D"100"><!-- NOTE(stuart.olivera): Using colsp=
+an=3D100 because Apple Mail resizes all table cells to be equal otherwise -=
+-><!-- NOTE(stuart.olivera): Empty to prevent auto-layout within open horiz=
+ontal space --></td></tr></table></td></tr><tr><td align=3D"left" style=3D"=
+font-size:0px;padding:12px 0px;padding-top:0;padding-bottom:0;word-break:br=
+eak-word;"><div style=3D"font-family:Arial;font-size:15px;line-height:25px;=
+text-align:left;color:#040D14;"><a href=3D"https://sg.robinhood.com/ls/clic=
+k?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQGCe1CQZEnizp-2FioCNhT9F4-3DsKIk_kdYiKv-=
+2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0I=
+KcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2=
+FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qz=
+Kfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0Kszt=
+KrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhG=
+PQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwU-2B=
+7-2BfqdjSpM4mty8udopum4UBoKuoTbSknZ5BywbpTLEtFUpzQTeWUBfgBLEAkwXp2T-2FP3Emh=
+sDj57gEH7faqG1oTvKBYvla7MnytAKpHNAMSEIWpwCVyHh6nwdapVcAOLEknmLLqggfGAof4TGO=
+tDMcoMEZHviVzaSxB5McHj50NmxwK5pjbibHFxu6QTrmiY-2FjJMX4wmA7i1jXVvZi14AlMyE5C=
+pIaZIKYNR0GHzDT5zKik-2F3fwI0YSDsDy2dQ-3D" style=3D"color: #040D14; text-dec=
+oration: none; font-weight: normal;">Home</a><br><a href=3D"https://sg.robi=
+nhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQC5o9ZgNv9XjsTHRXUo18-2=
+F39yTFm1gerVf3NzZ-2Bq6v582Qma_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG=
+8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BT=
+A9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZA=
+OAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhw=
+syPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9=
+EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0=
+Qkct-2BI032IghSJZksxWt1AmL6j-2BExe3DJcafCZ4wYATBel83ndmHsF2xsR2xvh5ezxmp3ys=
+sZS-2BQEqaUVjAQ4Of-2BnFFAv4Nj98xMpN0aJCh8J5vzhnrH-2BGEvYFvlE5AAthge9T9rTCET=
+MIaWN5i7XHnGR5CNugou4Z-2BXxoipg8-2BkSxjvIEcZAGrJx38bhoMlgRlMU9ak9OsP6KH-2B7=
+NX3QZL1vqkJB4ZGPF2Ad80GaZ5V7-2BuFPxmFrNSrF9sgANTOO9QVU51nm9KnGGEGTqSwUT9TQc=
+g18-3D" style=3D"color: #040D14; text-decoration: none; font-weight: normal=
+;">Help Center</a><br><a href=3D"https://sg.robinhood.com/ls/click?upn=3Du0=
+01.XlCJqwwOL58T-2B5u1T1OmQAlydjR5f4mdTXdcT7feJOynea3XSSTINN-2FQNKA1RZ0PBIzN=
+_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KW=
+hiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BO=
+bXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9=
+tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlM=
+yKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6=
+D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-=
+2BEwWDV2KQVADcuLiXrzS0lfp3851h-2Bj7fRZp-2F73lSaz3YwEIMjVT9zLY-2BBlDxRwuKmst=
+-2FKMVtOc4Gq-2Fv8uY9Jmmnm5pQiLWOVct0qV2sVWJW9JjMJsCxcAhZKULa-2BhjwAug04YO9H=
+vC-2FtBaIAMlzwXpdQFgTkOm3wcFZh9FSLsKlWJMjWKSPGGiIhKdwB6HHKNfNu3GBMiMlkDJs38=
+CRSzCeL5Tr5UEO9sLlTogJy1bPdzVI9odM0YM6vNHW2LeW1AM-3D" style=3D"color: #040D=
+14; text-decoration: none; font-weight: normal;">Contact Us</a><br><a href=
+=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQKjd=
+Gw98ELnTZqb6ux0URJtKua3U9syCPsYupvOGybPt4MQf_kdYiKv-2B63pC41O6zclZ3Tdf7m5XS=
+dk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgB=
+lWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2F=
+L9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDU=
+mwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28=
+o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYak=
+GiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEyFt8vhF8kR0M7N5DYtEG-2Bt2U3Y=
+-2BJ4JXPN9FrJRZ-2BaXBCykGZm0s74fljO0WAY04g7mm0TgMpe5r8Djf983uLBEwi22nKmV6oO=
+S4IQvskRBjmSVTR3eax-2Bd08y9sQOzYHuZvexlo5frNykSlGvSssKNiNk-2BKXosE-2BFIFOIt=
+A7Phm-2FnbpmhPb8fSvHMfG1WYoUbrct1cySNRiSvi224Uozp856MNPGLA6ekYkUCBebY3mcjqD=
+u6K8bMhG-2B6liSSppc8-3D" style=3D"color: #040D14; text-decoration: none; fo=
+nt-weight: normal;">Privacy Policy</a></div></td></tr></tbody></table></div=
+><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table>=
+</div><!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mj-section-rh-outlook" rol=
+e=3D"presentation" style=3D"width:652px;" width=3D"652" bgcolor=3D"#F6F6F6"=
+ ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exact=
+ly;"><![endif]--><div class=3D"mj-section-rh" style=3D"background:#F6F6F6;b=
+ackground-color:#F6F6F6;margin:0px auto;max-width:652px;"><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"background:#F6F6F6;background-color:#F6F6F6;width:100%;"><tbody=
+><tr><td style=3D"border:1px solid #B4BDC2;border-bottom:1;border-top:none;=
+direction:ltr;font-size:0px;padding:20px 0;padding-bottom:34px;padding-left=
+:32px;padding-right:32px;padding-top:0;text-align:center;"><!--[if mso | IE=
+]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td class=3D"footer-column-outlook footer-disclosure-outlook foo=
+ter-disclosure-muted-outlook" style=3D"vertical-align:top;width:586px;" ><!=
+[endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix footer-colum=
+n footer-disclosure footer-disclosure-muted" style=3D"font-size:0px;text-al=
+ign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top;" width=3D"100%"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size: 0px; padding: 12px 0px; word-break: break-word; pad=
+ding-bottom: 0px;"><div style=3D"font-family: Arial; text-align: left; font=
+-size: 12px; line-height: 22px; color: #6F787E;">IRS contribution limits ar=
+e $6,500 ($7,500 if you're age 50 or older) for 2023 and $7,000 ($8,000 if =
+you=E2=80=99re age 50 or older) for 2024. Visit the <a href=3D"https://sg.r=
+obinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQJlE-2F5Oxvd-2FKkH7l=
+VD64J6jLYwMtIn7pMJ8o57vfQcH2X019Xv-2F8v0FskPkdX2XJt21CMmmiP6fbSow3-2BtHqELG=
+oMiBR3JPed7SfW2XQdBJRyisUB7CcgoenFbs-2F6RVUYtrI8JLvZdYVYqYNLUFlerbc6wpbiNwL=
+Ya30oMLmm3U8L9EiA5JhlE8eKHnmIW7KDokoA6W61t6WIrTL2rEfBMqqgeg1702peD4zPb2SN-2=
+F-2BJSbACER6bCrflca5apjW6vw-3D-3DhSoQ_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQR=
+Y1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf=
+2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55=
+isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYu=
+F4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkV=
+QeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf=
+2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEwxCuHp2soqC9IABooUTEM39By1jjbOqpDrj=
+olhXwE-2FeGTITd0dOiXNyN69kEdYTZttSsIzNPywj32N2uqORmgB3skU-2B5K5CsdnqRXf1A3-=
+2Bj8E-2BPkhbWkuJIOcp9Gm2U0mt67uXCeXnhMQ042sOQB-2FySE7Q77AtN2s9giCwVA2PTh8j1=
+uHoORNgooSBmJ9xDIgl19zSHOLpMdfIIFJP-2BSZd8919Ar1p7os-2FbFqUiRI0c9TsrlEfK4FD=
+Yq2bGcEsJpA-3D" style=3D"color: #040D14; text-decoration: none; font-weight=
+: normal;">IRS site</a> for more information. The annual tax filing deadlin=
+e is typically April 15th but may vary by year or individual taxpayer circu=
+mstances.</div></td></tr><tr><td align=3D"left" style=3D"font-size: 0px; pa=
+dding: 12px 0px; word-break: break-word; padding-bottom: 0px;"><div style=
+=3D"font-family: Arial; text-align: left; font-size: 12px; line-height: 22p=
+x; color: #6F787E;">The 3% matching on contribution requires a subscription=
+ with Robinhood Gold (fees apply), must be subscribed to Gold for 1 year af=
+ter your contribution to keep the full 3% match. You must have compensation=
+ (wage income) in order to contribute to an IRA. The funds that earned the =
+match must be kept in the account for at least 5 years to avoid a potential=
+ Early IRA Match Removal Fee. For more information refer to the <a href=3D"=
+https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQBtPVLPg=
+t-2FKtxcXAneb16TUMIsB-2BWptDkzwjPd4hO3wgKsduXY2PtW24J48hSbCIbNInWEoHQgZPFqs=
+9q0S8auc-3DqzVG_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0h=
+Hksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD=
+9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNng=
+Pm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL=
+6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8p=
+oikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032Igh=
+SJZksxWt1AmL6j-2BEzjXcCxiBMzICnWR6dO-2Bd-2FWjEqOKnvstJShxd1EvO-2B-2FzxHOf7R=
+IaV-2B7a5FePYUTA-2FG4Jk4eVx-2BRT5D8s97p-2FIjtIDw-2F7E2GzHQ2xvFlSnNVlzFoUQ3-=
+2BjdJEvUe2qHFqYyuCLbD0eATwIVyi0Btl2kIOml0j5Ww-2B-2FG6kmNwVIMYvRrtw14Ww3NQK9=
+mpqe0u-2BHbmVeJ-2Fagcbbic275dRv9xYCZJu9OsMW-2F9CGB1T4TAZ16CshbhSxkRyv0fp5vZ=
+56tP4-3D" style=3D"color: #040D14; text-decoration: none; font-weight: norm=
+al;">IRA Match FAQ</a>.</div></td></tr><tr><td align=3D"left" style=3D"font=
+-size: 0px; padding: 12px 0px; word-break: break-word; padding-bottom: 0px;=
+"><div style=3D"font-family: Arial; text-align: left; font-size: 12px; line=
+-height: 22px; color: #6F787E;">Funds being contributed into or distributed=
+ from retirement accounts may entail tax consequences. Contributions are li=
+mited and withdrawals before age 59 1/2 may be subject to a penalty tax. Ro=
+binhood does not provide tax advice; please consult with a tax adviser if y=
+ou have questions. This is not a recommendation to roll over.</div></td></t=
+r><tr><td align=3D"left" style=3D"font-size: 0px; padding: 12px 0px; word-b=
+reak: break-word; padding-bottom: 0px;"><div style=3D"font-family: Arial; t=
+ext-align: left; font-size: 12px; line-height: 22px; color: #6F787E;">The R=
+obinhood IRA is available to any U.S. customer with a Robinhood brokerage a=
+ccount in good standing.</div></td></tr><tr><td align=3D"left" style=3D"fon=
+t-size: 0px; padding: 12px 0px; word-break: break-word; padding-bottom: 0px=
+;"><div style=3D"font-family: Arial; text-align: left; font-size: 12px; lin=
+e-height: 22px; color: #6F787E;">All investments involve risk and loss of p=
+rincipal is possible.</div></td></tr><tr><td align=3D"left" style=3D"font-s=
+ize: 0px; padding: 12px 0px; word-break: break-word; padding-bottom: 0px;">=
+<div style=3D"font-family: Arial; text-align: left; font-size: 12px; line-h=
+eight: 22px; color: #6F787E;">Robinhood Financial LLC (member <a href=3D"ht=
+tps://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQFCi7InLB4=
+GQGi5mW-2F112Io-3D1lKB_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShe=
+lqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K=
+-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXA=
+X2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T=
+0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F=
+6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2B=
+I032IghSJZksxWt1AmL6j-2BEyoOTybaE9j1z0LBsjHcHXQm-2FUnv-2BxBB9-2BygpNyt19x39=
+sMqd3dPMNOhhnYbSY3HhcZTBIEGLGamAFdAF9lq0bLHPypAoKsqMKdpcVtGKKbKOTe9hnCNdicA=
+530b8B1K-2FRFGIwM48oegJCCZGbF5jNvvhcan8PeBT967oDbQBPPVURtzFGSCcQpIMVFxZ2X7o=
+pkT20pjhnKRCH-2B3-2B1noJaxa2Vxh0I7NcSxndxJgewIQenyAlGJxKQCCQ3m7MVAscg-3D" s=
+tyle=3D"color: #040D14; text-decoration: none; font-weight: normal;">SIPC</=
+a>), is a registered broker dealer. Robinhood Securities, LLC (member <a hr=
+ef=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL58T-2B5u1T1OmQF=
+Ci7InLB4GQGi5mW-2F112Io-3D9jtl_kdYiKv-2B63pC41O6zclZ3Tdf7m5XSdk6qQQRY1PQ-2F=
+G8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgBlWP9tpf2ZEA-2B=
+TA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2FL9fKV55isSN7BZ=
+AOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDUmwxRcYuF4lenbh=
+wsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28o9G6SkVQeT2qRs=
+9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYakGiMMoBf2F-2Bfz=
+0Qkct-2BI032IghSJZksxWt1AmL6j-2BEze0C3HUQ5-2BzNLiFXfufou0QTAN92ttYXyCi6UcUl=
+GcKqR00YGXQ-2Fc8XQ2GtY6oQxr01eDIe4pQPC9FBKFFXVsYGwHTsK-2FH9MdPZ74JUdCe4wjOK=
+p-2BSDJKQaYyPWM5QPuPRxmxHou-2FTteBmdMwvbn52jn5t7bSX2a2e7aKNRsG5uo-2F8c-2F4w=
+yywbJPqEbPVKOuJbygajqVx9RTV7EpHsKzzBbX6TmJII1Bi07SlOSNP56aAGDq9DE-2FiQ7Wp6U=
+KdaZAA-3D" style=3D"color: #040D14; text-decoration: none; font-weight: nor=
+mal;">SIPC</a>), is a registered broker dealer and provides brokerage clear=
+ing services. All are subsidiaries of Robinhood Markets, Inc. (=E2=80=98Rob=
+inhood=E2=80=99).</div></td></tr><tr><td align=3D"left" style=3D"font-size:=
+ 0px; padding: 12px 0px; word-break: break-word; padding-bottom: 0px;"><div=
+ style=3D"font-family: Arial; text-align: left; font-size: 12px; line-heigh=
+t: 22px; color: #6F787E;">=C2=A9 2024 Robinhood Markets, Inc. 3=E2=80=8B510=
+017</div></td></tr><tr><td align=3D"left" class=3D"footer-unsubscribe-text"=
+ style=3D"font-size: 0px; padding: 12px 0px; word-break: break-word; paddin=
+g-bottom: 0px; padding-top: 12px;"><div style=3D"font-family: Arial; text-a=
+lign: left; font-size: 12px; line-height: 22px; color: #6F787E;"><a target=
+=3D"_blank" href=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL5=
+8T-2B5u1T1OmQLUovGyCcSCzSB9CaVOaEaRoM7wS8ERxZUkKwoyHVnuBoiGTlBcbfplRk2EZJBG=
+IL8vHIItI4pkYhgvZaobnjJ0W-2B46iDUxWIbpb0CLvXufbvHnYLQfad-2F6KcFa1vjPVOBZPB7=
+iQzMh30hO6vRM6rP0R2E1Vh55vBkC6yTi7t-2FBnUBtI_kdYiKv-2B63pC41O6zclZ3Tdf7m5XS=
+dk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa30Fg38HFp1i6zgB=
+lWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyPx3qoetkf0BK-2F=
+L9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK4sYDQquLwPNRDU=
+mwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDHmkYsNu2DsBXE28=
+o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK06FIIbAV-2FYak=
+GiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BExI0s9v-2Bu7-2FltUpi5KTVoV5p5=
+nvqoorNS-2FqJoEu2Qlila6OZqG81GlAYaDETKvso-2FyIfIUDM-2F2XTWvmFDtbqU2r4ZCuknU=
+-2B-2BpkJ-2BDVLyffYasC1PSd0qehjznvQ5M-2BANe-2FnpN-2FBz53xXXcJpLpgnzMoblB0i5=
+eok7eC9pfZjSYYCfmbECikHXQIiGsYtu8sVI1duvYq1p0OyZk7V05trNV7L0k7FnfkwZ58dQxSF=
+g8W4tpKG-2FtcR4Czv0nFpJxxDug-3D" class=3D"link-footer-unsubscribe" style=3D=
+"border-bottom: 1px solid #040D14; text-decoration: none; font-weight: norm=
+al; color: #6F787E; border-bottom-color: #6F787E;">Unsubscribe</a> <a targe=
+t=3D"_blank" href=3D"https://sg.robinhood.com/ls/click?upn=3Du001.XlCJqwwOL=
+58T-2B5u1T1OmQLUovGyCcSCzSB9CaVOaEaStUK2NBjsu466OcBW2WhBnlnY1snG-2ByvqvKQqL=
+p8A-2FG-2Bx4UbImhtkTouX9-2Fre5ZD5LidbzAoMVUZbSRwszTLFgVx_U_kdYiKv-2B63pC41O=
+6zclZ3Tdf7m5XSdk6qQQRY1PQ-2FG8TrxShelqu1e0hHksh9nI55LSK4KWhiXDdi0IKcVCovHa3=
+0Fg38HFp1i6zgBlWP9tpf2ZEA-2BTA9-2F6K-2FaDyD9odUUw2WdRD-2BObXNQca-2FaZNg0PyP=
+x3qoetkf0BK-2FL9fKV55isSN7BZAOAY9UXAX2jvNngPm08jJ953zUD5w9tfmhL9qzKfijnx2iK=
+4sYDQquLwPNRDUmwxRcYuF4lenbhwsyPqT4T0ZYcCtL6ca2t45bRCggrlMyKW0KsztKrsbucrDH=
+mkYsNu2DsBXE28o9G6SkVQeT2qRs9EG4G-2F6R2uo8poikIPvCQssLf5a6D18FZDhGPQPSAZNDK=
+06FIIbAV-2FYakGiMMoBf2F-2Bfz0Qkct-2BI032IghSJZksxWt1AmL6j-2BEzLVds-2Fqq1Tsa=
+LfY04BnvtPxd1T8mn4F2X-2BqNn-2FN2lzSaOVkKx3Zp3nSAkGoFTdufFz5fmmJsKOOH5NS1tqE=
+oy3SQ2xz3bqCmuR7xOhf-2BUsLIYfVPl-2FcOPzZ2fzh9QsAnSORpXSTP6tmbMUTM5sfYoDQSHy=
+x-2B2B-2BmODnMeyovKbaAEXpv78-2BQtbgORpFFTVecOJAsg3pwAJ5cGQj6aHeTY2JRPW6H1Uv=
+MXu-2FUJhChw1RHnYN47-2BdZQ2taDs-2BNQs8uo-3D" class=3D"link-footer-unsubscri=
+be" style=3D"border-bottom: 1px solid #040D14; text-decoration: none; font-=
+weight: normal; color: #6F787E; border-bottom-color: #6F787E;">Subscription=
+ settings</a></div></td></tr></tbody></table></div><!--[if mso | IE]></td><=
+/tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]><=
+/td></tr></table><![endif]--></div><img src=3D"https://sg.robinhood.com/wf/=
+open?upn=3Du001.g3YGkz4VEw5TJNxRjeM7pV6xwgYDhHdNwePtAU-2B6nZKFxR-2Bbf2NDJGL=
+he0v3RKZI3o4VHIzdgA3dl1cw-2Fp98Yb4cuuT4KvuCoiecaUGYDs5QXZx1HaDG2Ev3rm02xVgA=
+1MZ5Enz1ShK8VUKB6Uvt0njw5FepMsL-2BD8Xd-2BMt2-2F70oEoJ3QUSWLrc7xEVmCWhp5wtPH=
+BMCl-2BXI-2BUw3SA8SpzKshV4SyjkDVgCsWm8lT-2Bh-2FEg-2Blj-2FusmPWnY9o6F1IiIs95=
+NcH7EWNTFoDHxXUWnzKVUNfO6uG4K9hkxvGCu0PMqLquk30OBMHKc988iVcp2riS-2FQoTmGXO8=
+etomNG5p3KiG47fEL8Z7eLTUNlNHHcwI74bMM7hcqpSeJb1f9vQmddHVQa5mmEUf-2BHKPCp6DW=
+jUECCYvwhjEnrMOTlxY4l603l03s-2FaDBKcEAkjEYn03dobCY-2FFxTsurKVwpWjJuFzjRCIQI=
+5qjtZPrqwWLKLQKklOKFAOUfBz166QxW7PRZQY5PARMXDVknFA-2BrbJqKJRLkUZFmeqKVodpaS=
+F-2Fvzvg6-2BZowrnWCt0Wj6VOf4qOvyEBQEGZPZ35QoAWbXGCPI-2BHJCsCyBWj05CMyENpbIA=
+YJ3JHUaEdvjPbwjD2SPAUI8ID5Dsovxvdu5nyfBRjXcjHCdww-2Bt833lgqdnKNrPQ-2B8Ggaly=
+BmcwlxRi-2Bmu9ur" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"h=
+eight:1px !important;width:1px !important;border-width:0 !important;margin-=
+top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margi=
+n-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;pa=
+dding-right:0 !important;padding-left:0 !important;"/></body></html>
+--1c227061a3b659842043c4c0cb42ba023ec7a37cedbb79c00fab714a7b5e--
